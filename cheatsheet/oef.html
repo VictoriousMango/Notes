@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OEF – Optical Engineering Fundamentals Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">OE</div>
+        <div>
+          <div class="brand-text-main">OEF – Optical Engineering Fundamentals</div>
+          <div class="brand-text-sub">Concept cheat sheet</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        OEF · Core foundations
+      </span>
+      <h1 class="hero-title">
+        OEF <span>Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        These cards summarise the core optics concepts behind your OEF VIVA bank:
+        wave optics, interference, diffraction, Fourier optics, polarization,
+        photon optics, Gaussian beams, imaging systems, and advanced applications.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar with topics -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#wave-em">Wave & Electromagnetic Optics</a></li>
+          <li><a href="#interference-diffraction">Interference, Diffraction & Coherence</a></li>
+          <li><a href="#matrix-gaussian">Matrix Optics & Gaussian Ray Optics</a></li>
+          <li><a href="#polarization">Polarization</a></li>
+          <li><a href="#fourier-holography">Fourier Optics & Holography</a></li>
+          <li><a href="#photon-quantum">Photon / Quantum Optics</a></li>
+          <li><a href="#nonlinear">Nonlinear Optics</a></li>
+          <li><a href="#imaging-instruments">Imaging & Instruments</a></li>
+          <li><a href="#application-cross">Application / Cross-topic</a></li>
+          <li><a href="#extreme-advanced">Extremely Advanced / Research-level</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main subject content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>OEF – Optical Engineering Fundamentals</h1>
+          <p>
+            Each topic block corresponds to a cluster of questions from the OEF section
+            of your VIVA bank. If you can explain each card aloud in your own words,
+            you can answer most OEF questions with confidence.
+          </p>
+        </header>
+
+        <!-- 1. WAVE & EM -->
+        <section id="wave-em" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Wave & Electromagnetic Optics</h2>
+              <p class="topic-meta">
+                Wave equation, EM description of light, paraxial approximation,
+                reflection/refraction and basic wave propagation.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Wave equation</p>
+              <h3>EM Wave Equation in Free Space</h3>
+              <p>
+                Light is a transverse electromagnetic wave; electric and magnetic fields
+                satisfy the same wave equation.
+              </p>
+              <div class="formula">
+                ∇²E − (1/c²) ∂²E/∂t² = 0
+              </div>
+              <ul>
+                <li>Solution: plane waves, Gaussian beams, spherical waves, etc.</li>
+                <li>Speed: c = 1/√(μ₀ε₀).</li>
+                <li>In media: c → v = c/n, where n is refractive index.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Approximation</p>
+              <h3>Paraxial Approximation</h3>
+              <p>
+                For rays making small angles with the optical axis, sinθ ≈ θ and tanθ ≈ θ.
+              </p>
+              <ul>
+                <li>Simplifies ray and wave equations → Gaussian optics.</li>
+                <li>Valid for narrow-angle systems with small field of view.</li>
+                <li>Breaks down for high-NA, wide-field, or strongly focusing systems.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Interfaces</p>
+              <h3>Reflection, Refraction & Snell’s Law</h3>
+              <p>
+                At a plane interface, tangential components of E and H are continuous,
+                leading to Snell’s law and Fresnel coefficients.
+              </p>
+              <ul>
+                <li>Snell: n₁ sinθ₁ = n₂ sinθ₂.</li>
+                <li>Fresnel coefficients → amplitude reflection / transmission.</li>
+                <li>Special cases: Brewster angle, total internal reflection.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. INTERFERENCE & DIFFRACTION & COHERENCE -->
+        <section id="interference-diffraction" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Interference, Diffraction & Coherence</h2>
+              <p class="topic-meta">
+                Conditions for interference, temporal/spatial coherence, and Fraunhofer/Fresnel diffraction ideas.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Interference</p>
+              <h3>Conditions for Observable Interference</h3>
+              <p>
+                Stable interference fringes require a fixed phase relationship between waves.
+              </p>
+              <ul>
+                <li>Same frequency (or very close).</li>
+                <li>Temporal coherence: path difference &lt; coherence length.</li>
+                <li>Spatial coherence: points on wavefront must maintain phase correlation.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Coherence</p>
+              <h3>Temporal vs Spatial Coherence</h3>
+              <p>
+                Coherence describes the correlation of a field with itself in time and space.
+              </p>
+              <ul>
+                <li>Temporal: how long phase remains predictable → coherence time τc, length Lc = cτc.</li>
+                <li>Spatial: correlation between two points on a wavefront → affects fringe contrast in Young’s experiment.</li>
+                <li>Lasers: high temporal & spatial coherence; LEDs: low temporal, moderate spatial.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Diffraction</p>
+              <h3>Fresnel vs Fraunhofer Diffraction</h3>
+              <p>
+                Both describe bending and spreading of waves; differ in distance regime.
+              </p>
+              <ul>
+                <li>Fresnel: near field; quadratic phase variation significant.</li>
+                <li>Fraunhofer: far field; aperture field’s Fourier transform.</li>
+                <li>Physical optics uses Fresnel number to classify regime.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. MATRIX OPTICS & GAUSSIAN -->
+        <section id="matrix-gaussian" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Matrix Optics & Gaussian Ray Optics</h2>
+              <p class="topic-meta">
+                ABCD matrices, ray vectors, and Gaussian beam parameters like waist, radius of curvature and divergence.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">ABCD</p>
+              <h3>Ray Transfer (ABCD) Matrix</h3>
+              <p>
+                Paraxial propagation through an optical system can be described by a 2×2 matrix:
+              </p>
+              <div class="formula">
+                \[ \begin{bmatrix} y_2 \\ \theta_2 \end{bmatrix}
+                = \begin{bmatrix} A & B \\ C & D \end{bmatrix}
+                  \begin{bmatrix} y_1 \\ \theta_1 \end{bmatrix} \]
+              </div>
+              <ul>
+                <li>Free space: A = 1, B = L; C = 0, D = 1.</li>
+                <li>Thin lens: A = 1, B = 0; C = −1/f, D = 1.</li>
+                <li>Multiply matrices in order of traversal.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Gaussian beam</p>
+              <h3>Gaussian Beam Parameters</h3>
+              <p>
+                TEM₀₀ beam has a Gaussian intensity profile with minimum spot size at the waist.
+              </p>
+              <ul>
+                <li>Waist radius: w₀ (minimum beam size).</li>
+                <li>Rayleigh range: z<sub>R</sub> = π w₀² / λ.</li>
+                <li>Divergence: θ ≈ λ / (π w₀) (far field).</li>
+                <li>Spot size: w(z) = w₀ √(1 + (z / z<sub>R</sub>)²).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">q-parameter</p>
+              <h3>Complex q-Parameter</h3>
+              <p>
+                Gaussian beams through ABCD systems use the complex beam parameter q.
+              </p>
+              <div class="formula">
+                1 / q(z) = 1 / R(z) − i λ / (π w²(z))
+              </div>
+              <ul>
+                <li>Transforms as q₂ = (A q₁ + B) / (C q₁ + D).</li>
+                <li>R(z): radius of curvature; w(z): spot size.</li>
+                <li>Used to design stable resonators & beam expanders.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. POLARIZATION -->
+        <section id="polarization" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Polarization</h2>
+              <p class="topic-meta">
+                Jones vectors and matrices, Stokes parameters, wave plates and partial polarization.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Jones</p>
+              <h3>Jones Vector & Jones Matrix</h3>
+              <p>
+                For fully polarized, monochromatic light, the transverse electric field
+                is represented as a 2-element complex vector:
+              </p>
+              <div class="formula">
+                \[ \mathbf{E} =
+                \begin{bmatrix}
+                E_x \\ E_y
+                \end{bmatrix} \]
+              </div>
+              <ul>
+                <li>Optical elements → 2×2 Jones matrices.</li>
+                <li>Example: ideal linear polarizer, QWP, HWP.</li>
+                <li>Output: E<sub>out</sub> = J · E<sub>in</sub>.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Stokes</p>
+              <h3>Stokes Parameters</h3>
+              <p>
+                Stokes vector represents partially polarized light using 4 real numbers:
+              </p>
+              <div class="formula">
+                S = [ I, Q, U, V ]ᵀ
+              </div>
+              <ul>
+                <li>I: total intensity.</li>
+                <li>Q, U: linear polarization components.</li>
+                <li>V: circular polarization.</li>
+                <li>Degree of polarization: P = √(Q² + U² + V²) / I.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Waveplates</p>
+              <h3>Quarter & Half Wave Plates</h3>
+              <p>
+                Birefringent elements introduce a phase delay between orthogonal components.
+              </p>
+              <ul>
+                <li>QWP: δ = π/2 → converts linear ↔ circular (for 45° input).</li>
+                <li>HWP: δ = π → rotates linear polarization by 2θ.</li>
+                <li>Used for polarization control, retarders in AO, etc.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. FOURIER OPTICS & HOLOGRAPHY -->
+        <section id="fourier-holography" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Fourier Optics & Holography</h2>
+              <p class="topic-meta">
+                Convolution, spatial frequency, OTF/MTF, lens Fourier transforms, and hologram basics.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">System model</p>
+              <h3>Convolution in Imaging Systems</h3>
+              <p>
+                Linear, shift-invariant imaging system → image is convolution of object with PSF.
+              </p>
+              <div class="formula">
+                Image(x, y) = Object(x, y) * PSF(x, y)
+              </div>
+              <ul>
+                <li>PSF: response to point source.</li>
+                <li>Blurring = PSF broad; sharp image = PSF narrow.</li>
+                <li>Fourier domain: multiplication by OTF.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">OTF</p>
+              <h3>Optical Transfer Function & MTF</h3>
+              <p>
+                OTF is the system’s response to spatial frequencies.
+              </p>
+              <div class="formula">
+                OTF(fₓ, fᵧ) = FT{ PSF(x, y) }
+              </div>
+              <ul>
+                <li>Magnitude → MTF: contrast transfer.</li>
+                <li>Phase → PTF: phase distortions.</li>
+                <li>Cutoff spatial frequency set by NA and λ.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Lens FT</p>
+              <h3>Lens as Fourier Transform Element</h3>
+              <p>
+                Object at front focal plane → back focal plane field ∝ Fourier transform of object field.
+              </p>
+              <ul>
+                <li>Used in spatial filtering (4f systems).</li>
+                <li>Holography & optical information processing.</li>
+                <li>Frequency-domain interpretation of imaging.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Holography</p>
+              <h3>Digital Holography Concept</h3>
+              <p>
+                Interference pattern recorded by a sensor and numerically reconstructed by digital processing.
+              </p>
+              <ul>
+                <li>Record: object + reference beams → fringe pattern.</li>
+                <li>Reconstruct: numerically propagate field (Fresnel/Fourier methods).</li>
+                <li>Allows refocusing and phase retrieval from recorded intensity.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. PHOTON / QUANTUM -->
+        <section id="photon-quantum" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Photon Optics / Quantum Optics</h2>
+              <p class="topic-meta">
+                Photons, Bohr model, wave–particle duality and basic quantum ideas used in optics.
+              </p>
+            </div>
+          </div>
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Photon</p>
+              <h3>Photon: Energy & Momentum</h3>
+              <p>
+                Light energy is quantized in units called photons.
+              </p>
+              <div class="formula">
+                E = hν = hc / λ ,  p = h / λ
+              </div>
+              <ul>
+                <li>Explains photoelectric effect and line spectra.</li>
+                <li>Zero rest mass, always travels at speed c in vacuum.</li>
+                <li>Photon number fluctuations → shot noise.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Duality</p>
+              <h3>Wave–Particle Duality</h3>
+              <p>
+                Light shows both wave-like and particle-like behavior depending on the experiment.
+              </p>
+              <ul>
+                <li>Interference/diffraction → wave nature.</li>
+                <li>Photoelectric & Compton → particle nature.</li>
+                <li>De Broglie: λ = h / p for matter waves.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Bohr</p>
+              <h3>Bohr Model of Hydrogen</h3>
+              <p>
+                Electron orbits in discrete energy levels; radiation occurs during transitions.
+              </p>
+              <ul>
+                <li>Angular momentum: mvr = nħ.</li>
+                <li>Energy levels: Eₙ ∝ −1/n².</li>
+                <li>Line spectra: ΔE = hν between two orbits.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. NONLINEAR -->
+        <section id="nonlinear" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Nonlinear Optics</h2>
+              <p class="topic-meta">
+                Intensity-dependent refractive index, harmonic generation, phase matching and basic χ⁽²⁾/χ⁽³⁾ processes.
+              </p>
+            </div>
+          </div>
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Polarization</p>
+              <h3>Nonlinear Polarization Expansion</h3>
+              <p>
+                In strong fields, polarization is not proportional to E:
+              </p>
+              <div class="formula">
+                P = ε₀(χ¹E + χ²E² + χ³E³ + …)
+              </div>
+              <ul>
+                <li>χ¹ → linear optics.</li>
+                <li>χ² → second-harmonic, sum/difference frequency generation.</li>
+                <li>χ³ → Kerr effect, self-focusing, four-wave mixing.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">SHG</p>
+              <h3>Second Harmonic Generation (SHG)</h3>
+              <p>
+                Two photons at frequency ω combine to form one photon at 2ω in a χ² medium.
+              </p>
+              <ul>
+                <li>Requires phase matching to be efficient.</li>
+                <li>Common in nonlinear crystals (KDP, BBO, etc.).</li>
+                <li>Used for frequency doubling of lasers (e.g., 1064 nm → 532 nm).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Kerr</p>
+              <h3>Kerr Effect & Self-phase Modulation</h3>
+              <p>
+                Intensity-dependent refractive index:
+              </p>
+              <div class="formula">
+                n(I) = n₀ + n₂ I
+              </div>
+              <ul>
+                <li>Leads to self-focusing and self-phase modulation.</li>
+                <li>Important in ultrafast and fiber nonlinear optics.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 8. IMAGING & INSTRUMENTS -->
+        <section id="imaging-instruments" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Imaging & Instruments</h2>
+              <p class="topic-meta">
+                Eye model, microscopes, telescopes, resolution and radiometry basics.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Eye</p>
+              <h3>Optical Model of the Human Eye</h3>
+              <p>
+                The eye is a variable-focus optical system with cornea + lens forming an image on the retina.
+              </p>
+              <ul>
+                <li>Effective focal length ≈ 17 mm (in aqueous).</li>
+                <li>Accommodation: changing lens curvature to focus.</li>
+                <li>Defects: myopia, hypermetropia, astigmatism → corrected by spectacles.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Microscope</p>
+              <h3>Microscope Resolution</h3>
+              <p>
+                Resolution limited by diffraction and NA of objective.
+              </p>
+              <div class="formula">
+                d<sub>min</sub> ≈ 0.61 λ / NA
+              </div>
+              <ul>
+                <li>NA = n sinθ, where n: immersion medium, θ: half-angle of collection.</li>
+                <li>Higher NA & shorter λ → higher resolution.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Radiometry</p>
+              <h3>Radiometric Basics</h3>
+              <p>
+                Quantities describing optical power and brightness.
+              </p>
+              <ul>
+                <li>Power (Φ) in watts.</li>
+                <li>Irradiance (E): power per area.</li>
+                <li>Radiance (L): power per area per solid angle → conserved in lossless systems.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 9. APPLICATION / CROSS-TOPIC -->
+        <section id="application-cross" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Application / Cross-Topic Questions</h2>
+              <p class="topic-meta">
+                “Why” questions that combine multiple concepts: scattering,
+                SAR imaging, atmospheric effects, etc.
+              </p>
+            </div>
+          </div>
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Scattering</p>
+              <h3>Why Does Scattering Dominate in Biological Tissues?</h3>
+              <p>
+                Refractive index inhomogeneities at the micron scale cause strong scattering.
+              </p>
+              <ul>
+                <li>Multiple scattering → loss of ballistic photons.</li>
+                <li>Absorption often weaker in visible/NIR compared to scattering.</li>
+                <li>Key in biomedical optics and imaging depth limits.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Thin films</p>
+              <h3>Color in Thin Films</h3>
+              <p>
+                Results from wavelength-dependent interference between reflections at film interfaces.
+              </p>
+              <ul>
+                <li>Path difference: 2 n t cosθ inside film.</li>
+                <li>Constructive / destructive interference for different λ → colors.</li>
+                <li>Used in AR coatings and filters.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Twinkling</p>
+              <h3>Why Do Stars Twinkle but Planets Don’t?</h3>
+              <p>
+                Atmospheric turbulence creates time-varying phase screens.
+              </p>
+              <ul>
+                <li>Stars ≈ point sources → intensity fluctuates strongly.</li>
+                <li>Planets subtend larger apparent size → fluctuations average out.</li>
+                <li>AO systems are designed to correct similar atmospheric effects.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. EXTREMELY ADVANCED / RESEARCH -->
+        <section id="extreme-advanced" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Extremely Advanced / Research-Level</h2>
+              <p class="topic-meta">
+                Metasurfaces, photonic crystals, transformation optics and optical cloaking – high-level summaries.
+              </p>
+            </div>
+          </div>
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Metasurfaces</p>
+              <h3>Metasurfaces & Wavefront Engineering</h3>
+              <p>
+                Planar arrays of subwavelength scatterers that locally control phase, amplitude and polarization.
+              </p>
+              <ul>
+                <li>Act like “flat lenses”, beam shapers, holograms.</li>
+                <li>Design uses effective medium / resonant scatterer models.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Photonic crystals</p>
+              <h3>Photonic Crystals & Bandgaps</h3>
+              <p>
+                Periodic modulation of refractive index → photonic band structure (analogous to electrons in solids).
+              </p>
+              <ul>
+                <li>Photonic bandgap: frequency range where propagation is forbidden.</li>
+                <li>Used for waveguiding, high-Q cavities, and light localization.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Cloaking</p>
+              <h3>Transformation Optics & Cloaking (Conceptual)</h3>
+              <p>
+                Uses coordinate transformations to design spatially varying ε and μ that guide light around objects.
+              </p>
+              <ul>
+                <li>Requires anisotropic, inhomogeneous metamaterials.</li>
+                <li>Practical cloaks are limited in bandwidth and viewing angle.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

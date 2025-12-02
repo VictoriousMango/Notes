@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OEF Class Notes – Concept Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">CN</div>
+        <div>
+          <div class="brand-text-main">OEF – Class Notes Deck</div>
+          <div class="brand-text-sub">Condensed from EMO/OEF lecture notes</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        OEF · Class notes
+      </span>
+      <h1 class="hero-title">
+        OEF <span>Class Notes Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This page compresses your OEF / EMO lecture notes: ray & wave optics, interference,
+        coherence, speckle, Gaussian beams, polarization, holography and microscopy, in the
+        same dark-neon flashcard style as the rest of your portal.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Lecture Blocks</h2>
+        <ul class="topic-list">
+          <li><a href="#ray-wave-basics">Ray & Wave Optics Fundamentals</a></li>
+          <li><a href="#two-beam-interference">Two-Beam Interference & Interferometers</a></li>
+          <li><a href="#multiwave-speckle">Multiple-Wave Interference & Speckle</a></li>
+          <li><a href="#coherence-theory">Theory of Optical Coherence</a></li>
+          <li><a href="#coherence-applications">Applications of Coherence & Interferometry</a></li>
+          <li><a href="#gaussian-beams-block">Gaussian Beams & Modes</a></li>
+          <li><a href="#polarization-block">Polarization & Representations</a></li>
+          <li><a href="#holography-block">Holography</a></li>
+          <li><a href="#microscopy-block">Microscopy & Imaging Systems</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>OEF – Class Notes Summary</h1>
+          <p>
+            The idea: instead of flipping through big notes, you can walk through these sections
+            like a story – ray → wave → interference → coherence → Gaussian beams → polarization → 
+            holography → microscopy – and be ready for most OEF/EMO viva questions.
+          </p>
+        </header>
+
+        <!-- 1. Ray & wave optics fundamentals -->
+        <section id="ray-wave-basics" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Ray & Wave Optics Fundamentals</h2>
+              <p class="topic-meta">
+                Postulates of ray optics, Fermat’s principle, ABCD matrices, wave equation and
+                Fresnel / paraxial approximations.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">Ray optics</p>
+              <h3>Ray Postulates & Fermat’s Principle</h3>
+              <p>
+                Ray optics assumes light travels in straight lines in homogeneous media and bends
+                at interfaces according to Snell’s law.
+              </p>
+              <ul>
+                <li>Refractive index: n = c / v.</li>
+                <li>Fermat: actual path extremizes optical path length ∫n ds.</li>
+                <li>Snell: n₁ sinθ₁ = n₂ sinθ₂; TIR when θ &gt; θc = sin⁻¹(n₂/n₁).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Matrix optics</p>
+              <h3>ABCD Matrix & Imaging Condition</h3>
+              <p>
+                Paraxial rays are represented by height and angle vectors transformed by 2×2
+                ABCD matrices.
+              </p>
+              <ul>
+                <li>[y₂ θ₂]ᵀ = M [y₁ θ₁]ᵀ; det M = 1 for lossless optical systems.</li>
+                <li>C = 0 at image plane; system focal length from matrix elements.</li>
+                <li>Thin lens: 1/f = 1/g + 1/b; thick lens uses principal planes and effective f.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Wave optics</p>
+              <h3>Wave Equation, Helmholtz & Paraxial Approx.</h3>
+              <p>
+                Optical fields satisfy the scalar wave equation and, for monochromatic fields, the
+                Helmholtz equation.
+              </p>
+              <ul>
+                <li>∇²U + k²U = 0 with k = 2π/λ.</li>
+                <li>Slowly varying envelope → paraxial Helmholtz: (∇⊥² + 2jk ∂/∂z)A = 0.</li>
+                <li>Fresnel number F = a²/(λz) distinguishes near vs far-field regimes.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Two-beam interference & interferometers -->
+        <section id="two-beam-interference" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Two-Beam Interference & Interferometers</h2>
+              <p class="topic-meta">
+                Classic two-beam formulas, visibility and the basic interferometer families.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">2-beam</p>
+              <h3>Two-Beam Interference & Visibility</h3>
+              <p>
+                Superposition of two monochromatic beams with intensities I₁ and I₂ and phase
+                difference Δφ gives:
+              </p>
+              <ul>
+                <li>I = I₁ + I₂ + 2√(I₁I₂) cosΔφ.</li>
+                <li>Visibility V = (Imax − Imin)/(Imax + Imin), 0 ≤ V ≤ 1.</li>
+                <li>Max contrast when I₁ = I₂ and fields are fully coherent.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Setups</p>
+              <h3>Michelson, Mach–Zehnder & Fabry–Perot</h3>
+              <p>
+                Different interferometer geometries encode path difference in different ways.
+              </p>
+              <ul>
+                <li>Michelson: single beam splitter, two arms, recombination for OPD scan.</li>
+                <li>Mach–Zehnder: two splitters, separate output ports, good for phase modulation.</li>
+                <li>Fabry–Perot: multiple-beam interference in a cavity → high spectral resolution.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Gyro</p>
+              <h3>Sagnac Interferometer (Rotation Sensing)</h3>
+              <p>
+                A loop interferometer where rotation changes optical path length in opposite directions.
+              </p>
+              <ul>
+                <li>Phase shift ∝ enclosed area × rotation rate.</li>
+                <li>Used in fiber-optic gyroscopes and ring laser gyros.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Multi-wave & speckle -->
+        <section id="multiwave-speckle" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Multiple-Wave Interference & Speckle</h2>
+              <p class="topic-meta">
+                Interference of many waves, Fabry–Perot finesse and statistics of laser speckle.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">M waves</p>
+              <h3>Interference of M Equal-Amplitude Waves</h3>
+              <p>
+                M coherent waves with equal amplitude and phase step φ form a phasor polygon.
+              </p>
+              <ul>
+                <li>Resultant E ∝ sin(Mφ/2)/sin(φ/2).</li>
+                <li>Peak intensity ∝ M²I₀, average ∝ MI₀.</li>
+                <li>Basis for sharp transmission peaks in multi-beam interferometers.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Fabry–Perot</p>
+              <h3>Fabry–Perot Finesse & Resolution</h3>
+              <p>
+                In Fabry–Perot, many internal reflections create a geometric series in amplitude.
+              </p>
+              <ul>
+                <li>Transmission shows sharp resonances separated by FSR (free spectral range).</li>
+                <li>Finesse ℱ = FSR / FWHM; larger finesse → higher spectral resolution.</li>
+                <li>Reflectivity of mirrors controls finesse and peak transmission.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Speckle</p>
+              <h3>Speckle Formation & Statistics</h3>
+              <p>
+                Speckle arises from interference of many scattered coherent wavelets from a rough surface.
+              </p>
+              <ul>
+                <li>Random phasor sum → amplitude Rayleigh distributed, intensity exponential.</li>
+                <li>Mean intensity ⟨I⟩, PDF p(I) = (1/⟨I⟩)exp(−I/⟨I⟩) for fully developed speckle.</li>
+                <li>Used in ESPI, metrology and imaging through scattering media.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. Coherence theory -->
+        <section id="coherence-theory" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Theory of Optical Coherence</h2>
+              <p class="topic-meta">
+                Random fields, temporal & spatial coherence, correlation functions and
+                Wiener–Khinchin theorem.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">Temporal</p>
+              <h3>Temporal Coherence & Coherence Time</h3>
+              <p>
+                Temporal coherence describes how well a field correlates with itself after a delay τ.
+              </p>
+              <ul>
+                <li>Autocorrelation: G(τ) = ⟨U*(t)U(t+τ)⟩.</li>
+                <li>Normalized degree: g(τ) = G(τ)/G(0).</li>
+                <li>Coherence time τc where |g(τ)| drops to 1/e (or 1/2); coherence length lc = cτc.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Spectra</p>
+              <h3>Power Spectral Density & Wiener–Khinchin</h3>
+              <p>
+                The temporal spectrum and autocorrelation are Fourier-transform pairs.
+              </p>
+              <ul>
+                <li>S(ν) = ℱ{G(τ)}; G(τ) = ℱ⁻¹{S(ν)}.</li>
+                <li>Average intensity: ⟨I⟩ = ∫S(ν)dν.</li>
+                <li>Narrow spectrum ⇔ long coherence time; wide spectrum ⇔ short τc.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Spatial</p>
+              <h3>Spatial Coherence & Mutual Intensity</h3>
+              <p>
+                Spatial coherence measures correlation between fields at two points in space.
+              </p>
+              <ul>
+                <li>Mutual coherence: G(r₁,r₂,τ); at τ=0 → mutual intensity J(r₁,r₂).</li>
+                <li>Degree of coherence μ(r₁,r₂) = J / √(I₁I₂).</li>
+                <li>Coherence area: region where |μ| remains high; hot surface ~ λ² scale.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Coherence applications -->
+        <section id="coherence-applications" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Applications of Coherence & Interferometry</h2>
+              <p class="topic-meta">
+                FT spectroscopy, OCT, extended sources, van Cittert–Zernike and stellar interferometry.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">FTS</p>
+              <h3>Fourier-Transform Spectroscopy</h3>
+              <p>
+                A Michelson interferometer records intensity vs delay, whose Fourier transform
+                gives the spectrum.
+              </p>
+              <ul>
+                <li>Interferogram I(τ) ↔ spectral density S(ν).</li>
+                <li>High resolution from long travel and phase control, not narrow slits.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">OCT</p>
+              <h3>Optical Coherence Tomography (OCT)</h3>
+              <p>
+                Uses low-coherence interferometry to depth-resolve scattering layers.
+              </p>
+              <ul>
+                <li>Short coherence length → interference only when path lengths match within lc.</li>
+                <li>Time-domain / swept-source / spectral-domain variants.</li>
+                <li>Key tool in biomedical imaging & NDT.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">VCZ & stars</p>
+              <h3>van Cittert–Zernike & Stellar Interferometry</h3>
+              <p>
+                For an incoherent extended source, spatial coherence is FT of source intensity.
+              </p>
+              <ul>
+                <li>Visibility vs baseline encodes source angular size.</li>
+                <li>Michelson stellar interferometer: first zero of visibility gives θ ∼ 1.22 λ/d.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Gaussian beams -->
+        <section id="gaussian-beams-block" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Gaussian Beams & Modes</h2>
+              <p class="topic-meta">
+                Paraxial Helmholtz solutions, q-parameter, beam waist, divergence and HG/LG modes.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">q-parameter</p>
+              <h3>q-Parameter & Rayleigh Range</h3>
+              <p>
+                The fundamental Gaussian beam is described by a complex q(z):
+              </p>
+              <ul>
+                <li>q(z) = z + jz₀, where z₀ = πW₀²/λ is the Rayleigh range.</li>
+                <li>Beam radius: W(z) = W₀√(1 + (z/z₀)²).</li>
+                <li>Divergence: θ ≈ λ/(πW₀); depth of focus (confocal parameter) = 2z₀.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Phase</p>
+              <h3>Radius of Curvature & Gouy Phase</h3>
+              <p>
+                The Gaussian beam has curved wavefronts and an extra phase term.
+              </p>
+              <ul>
+                <li>R(z) = z[1 + (z₀/z)²]; R → ∞ at waist, R ≈ z far away.</li>
+                <li>Gouy phase: ζ(z) = arctan(z/z₀), total shift π across focus.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Modes</p>
+              <h3>Hermite- & Laguerre-Gaussian Modes</h3>
+              <p>
+                Paraxial equation admits higher-order transverse modes.
+              </p>
+              <ul>
+                <li>HGₘₙ(x,y,z) with Hermite polynomials in Cartesian coordinates.</li>
+                <li>LGₚˡ(ρ,φ,z) with Laguerre polynomials and azimuthal phase e^{jℓφ} (OAM beams).</li>
+                <li>Used in optical tweezers and mode engineering.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. Polarization -->
+        <section id="polarization-block" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Polarization & Representations</h2>
+              <p class="topic-meta">
+                Polarization states, Poincaré sphere, Jones & Stokes descriptions and basic
+                polarizing components.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">States</p>
+              <h3>Polarization States & Ellipse</h3>
+              <p>
+                Polarization is the trajectory of the tip of the electric field vector at a point.
+              </p>
+              <ul>
+                <li>Linear: components in phase or π out of phase.</li>
+                <li>Circular: equal amplitudes, ±π/2 phase → left/right circular.</li>
+                <li>Elliptical: general case; described by orientation and ellipticity angles.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Jones / Stokes</p>
+              <h3>Jones & Stokes Descriptions</h3>
+              <p>
+                Two complementary ways to represent polarization.
+              </p>
+              <ul>
+                <li>Jones vector J = [Aₓ, Aᵧ]ᵀ for fully polarized, coherent fields.</li>
+                <li>Stokes vector S = (S₀,S₁,S₂,S₃) for both fully and partially polarized light.</li>
+                <li>Mueller 4×4 matrices act on Stokes; Jones 2×2 matrices act on Jones vectors.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Components</p>
+              <h3>Polarizers & Waveplates</h3>
+              <p>
+                Anisotropic materials control amplitude and phase of polarization components.
+              </p>
+              <ul>
+                <li>Polarizers: dichroic, Brewster-angle, birefringent prism types.</li>
+                <li>Retarders: phase delay Δφ = (2π/λ)d(nₑ − nₒ).</li>
+                <li>λ/2 plate rotates linear polarization by 2θ; λ/4 at 45° converts linear ↔ circular.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 8. Holography -->
+        <section id="holography-block" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Holography</h2>
+              <p class="topic-meta">
+                Recording and reconstruction of complex wavefronts, in-line vs off-axis,
+                image/Fourier/volume holograms.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">Principle</p>
+              <h3>Recording & Reconstruction</h3>
+              <p>
+                Holography stores interference between object and reference waves.
+              </p>
+              <ul>
+                <li>Record intensity ∝ |U₀ + Uᵣ|² on a medium → contains amplitude & phase via cross terms.</li>
+                <li>Re-illuminate with reference (or conjugate) to reconstruct object wavefront.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Geometries</p>
+              <h3>In-line vs Off-Axis Holography</h3>
+              <p>
+                Geometry determines how object and conjugate images overlap.
+              </p>
+              <ul>
+                <li>In-line (Gabor): reference along same direction → twin-image problem.</li>
+                <li>Off-axis (Leith–Upatnieks): reference at angle; separates orders spatially.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Types</p>
+              <h3>Image, Fourier & Volume Holograms</h3>
+              <p>
+                Holograms can be recorded in different planes and media.
+              </p>
+              <ul>
+                <li>Image hologram: recording near image plane; reconstruction gives image directly.</li>
+                <li>Fourier hologram: recording at FT plane; useful for correlation and filtering.</li>
+                <li>Volume hologram: thick medium, Bragg selectivity; obeys 2d sinφ = mλ.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 9. Microscopy & imaging -->
+        <section id="microscopy-block" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Microscopy & Imaging Systems</h2>
+              <p class="topic-meta">
+                4-f systems, pupils & stops, conventional vs phase-contrast vs confocal microscopy.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+
+            <article class="flashcard">
+              <p class="tag">4-f</p>
+              <h3>4-f Imaging & Spatial Filtering</h3>
+              <p>
+                Two lenses in 4-f arrangement implement Fourier transform and inverse transform.
+              </p>
+              <ul>
+                <li>Object at front focal plane of lens 1; FT in the common focal plane.</li>
+                <li>Spatial filters in frequency plane control resolution and noise.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Microscopes</p>
+              <h3>Bright-Field & Phase-Contrast Microscopy</h3>
+              <p>
+                Modifying phase and amplitude at the pupil reveals weak phase objects.
+              </p>
+              <ul>
+                <li>Bright-field: standard illumination, contrast from absorption/scattering.</li>
+                <li>Phase-contrast: phase ring + annular illumination converts phase shifts to intensity.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Confocal</p>
+              <h3>Confocal Microscopy & Resolution</h3>
+              <p>
+                Confocal adds a pinhole conjugate to focus to reject out-of-focus light.
+              </p>
+              <ul>
+                <li>Improved axial sectioning: z-res ≈ λ/2(NA)², lateral ≈ λ/2NA.</li>
+                <li>3D imaging via z-stack and reconstruction.</li>
+              </ul>
+            </article>
+
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OptoMechanical Design – Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">OM</div>
+        <div>
+          <div class="brand-text-main">OptoMechanical Design</div>
+          <div class="brand-text-sub">Holding optics in the real world</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        OptoMechanical · Core deck
+      </span>
+      <h1 class="hero-title">
+        OptoMechanical <span>Design Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet condenses your OptoMechanical question bank: basic mounting principles,
+        lens and mirror cells, kinematic mounting and alignment, thermal and structural
+        considerations, vibration & shock, athermalisation, and packaging for real systems.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#om-basics">OptoMechanical Basics & Design Philosophy</a></li>
+          <li><a href="#materials-cte">Materials, CTE & Athermal Concepts</a></li>
+          <li><a href="#lens-mounting">Lens Mounting & Cells</a></li>
+          <li><a href="#mirror-mounting">Mirror Mounts & Supports</a></li>
+          <li><a href="#kinematic-alignment">Kinematic Mounts & Alignment Strategy</a></li>
+          <li><a href="#vibration-structural">Vibration, Structural Stiffness & Modal Behaviour</a></li>
+          <li><a href="#thermal-environmental">Thermal & Environmental Design</a></li>
+          <li><a href="#packaging-integration">Packaging, Tolerances & Integration with Optics</a></li>
+          <li><a href="#advanced-topics-om">Advanced / Specialised OptoMechanical Topics</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>OptoMechanical Design</h1>
+          <p>
+            OptoMechanical questions usually test if you understand how to <strong>translate an optical
+            design into a stable, alignable physical hardware</strong> that survives gravity, vibration
+            and temperature. Each card below is a “mini answer skeleton” for that style of question.
+          </p>
+        </header>
+
+        <!-- 1. Basics & philosophy -->
+        <section id="om-basics" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">OptoMechanical Basics & Design Philosophy</h2>
+              <p class="topic-meta">
+                What makes optomechanical design different from pure mechanical or pure optical design,
+                and what objectives we optimise for.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Role</p>
+              <h3>Role of OptoMechanical Design</h3>
+              <p>
+                OptoMechanical design connects ideal optical performance to real-world mechanical hardware.
+              </p>
+              <ul>
+                <li>Holds optics in precisely defined positions and orientations.</li>
+                <li>Maintains alignment over temperature, gravity direction and time.</li>
+                <li>Allows adjustment where needed and constrains DOFs where not needed.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Design priorities</p>
+              <h3>Key Design Priorities</h3>
+              <p>
+                Classic “triangle” for optomechanical design:
+              </p>
+              <ul>
+                <li>Performance: maintain optical tolerances & stability.</li>
+                <li>Robustness: survive loads (launch, vibration, shock, handling).</li>
+                <li>Manufacturability: simple parts, realistic tolerances, assembly-friendly.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">DOF control</p>
+              <h3>Degrees of Freedom (DOF) Thinking</h3>
+              <p>
+                A rigid body has 6 DOFs: 3 translations + 3 rotations.
+              </p>
+              <ul>
+                <li>Mounts must constrain just enough DOFs to hold the optic, no more.</li>
+                <li>Over-constraint → stress, distortion, difficulty in assembly.</li>
+                <li>Kinematic design deliberately assigns which DOFs are constrained where.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Materials & CTE -->
+        <section id="materials-cte" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Materials, CTE & Athermal Concepts</h2>
+              <p class="topic-meta">
+                How material choice and coefficient of thermal expansion (CTE) affect optical
+                performance and what “athermalization” means.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">CTE</p>
+              <h3>Coefficient of Thermal Expansion (CTE)</h3>
+              <p>
+                CTE is the fractional change in length per degree of temperature change.
+              </p>
+              <ul>
+                <li>ΔL = α L ΔT.</li>
+                <li>Mismatched CTE between glass and mount → stress & focus shift.</li>
+                <li>Low-CTE materials: Zerodur, ULE; structural: aluminium (high), Invar (very low).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Athermal</p>
+              <h3>Athermalisation (Concept)</h3>
+              <p>
+                Athermal design minimises performance change with temperature without active control.
+              </p>
+              <ul>
+                <li>Balance optical power changes (dn/dT, thermal expansion) with mechanical motion.</li>
+                <li>Use materials and geometry such that focus shift is compensated by element spacing change.</li>
+                <li>In mounts: flexures and spacers sized to move optics in a way that keeps system in focus.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Material choice</p>
+              <h3>Material Selection in OptoMechanics</h3>
+              <p>
+                Material choice must consider optical alignment, machining and environmental needs.
+              </p>
+              <ul>
+                <li>Aluminium: lightweight, easy to machine, high CTE.</li>
+                <li>Steel/Invar: stronger, lower CTE, heavier.</li>
+                <li>Match CTE of mounts near sensitive optics or use compliant interfaces.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Lens mounting -->
+        <section id="lens-mounting" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Lens Mounting & Cells</h2>
+              <p class="topic-meta">
+                How to support fragile glass elements without over-stressing them while
+                controlling centration and tilt.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Radial & axial</p>
+              <h3>Radial & Axial Constraints</h3>
+              <p>
+                Lens mounts must support lenses in both radial and axial directions.
+              </p>
+              <ul>
+                <li>Axial: retainers, shoulders, springs, compliant pads.</li>
+                <li>Radial: precision bores with clearance + soft pads or flexures.</li>
+                <li>Goal: minimal stress while keeping decenter & tilt within optical tolerances.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Edge contact</p>
+              <h3>Good Practices for Lens Cells</h3>
+              <p>
+                Avoid hard point contacts and tight fits on glass.
+              </p>
+              <ul>
+                <li>Use 3-point or continuous soft contacts (elastomers, plastic pads).</li>
+                <li>Provide clearance for manufacturing tolerances and CTE mismatch.</li>
+                <li>Use belleville springs or wave washers for axial preload with compliance.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Cemented groups</p>
+              <h3>Cemented Doublets & Triplets</h3>
+              <p>
+                Multiple lenses can be cemented to reduce surfaces and aberrations.
+              </p>
+              <ul>
+                <li>Cement layer takes up slight curvature mismatch, but sensitive to stress and temperature.</li>
+                <li>Assembly needs careful cleaning, alignment and curing control.</li>
+                <li>Mount as a single thick element in the mechanical cell.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. Mirror mounting -->
+        <section id="mirror-mounting" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Mirror Mounts & Supports</h2>
+              <p class="topic-meta">
+                How flat and curved mirrors are supported: edge supports, back supports and kinematic
+                mirror mounts.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Flat mirrors</p>
+              <h3>Flat Mirror Mounting</h3>
+              <p>
+                Small flat mirrors are often mounted in adjustable kinematic mounts.
+              </p>
+              <ul>
+                <li>Mount provides tip/tilt adjustment via screws or flexures.</li>
+                <li>Backed by pads and lightly clamped; avoid bending the substrate.</li>
+                <li>Used to steer beams in lab and instruments.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Large mirrors</p>
+              <h3>Large Mirror Supports (Concept)</h3>
+              <p>
+                Large mirrors require carefully distributed support to minimise deflection.
+              </p>
+              <ul>
+                <li>Back support using multiple points or whiffletree systems.</li>
+                <li>Edge support to avoid print-through and astigmatism from gravity.</li>
+                <li>Orientation changes (e.g., telescopes) require support that works over wide range of elevation angles.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Tip-tilt</p>
+              <h3>Tip–Tilt Mirrors & Fast Steering Mirrors</h3>
+              <p>
+                Mirrors mounted on actuators to correct low-order pointing errors.
+              </p>
+              <ul>
+                <li>Often first stage in AO systems for global tilt correction.</li>
+                <li>Must be lightweight, stiff and driven at high bandwidth without resonances in band.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Kinematic & alignment -->
+        <section id="kinematic-alignment" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Kinematic Mounts & Alignment Strategy</h2>
+              <p class="topic-meta">
+                How to design interfaces so parts assemble repeatably, and how alignment is
+                planned and executed in optical systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Kinematic</p>
+              <h3>Basic Kinematic Mount Concept</h3>
+              <p>
+                Kinematic mounts constrain exactly 6 DOFs using 3 pairs of mating features.
+              </p>
+              <ul>
+                <li>Classic example: cone–vee–flat arrangement.</li>
+                <li>Each feature constrains specific translations/rotations without over-constraint.</li>
+                <li>Provides high repeatability when parts are removed and reinstalled.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Datums</p>
+              <h3>Optical vs Mechanical Datums</h3>
+              <p>
+                Alignment strategy starts from defining reference datums.
+              </p>
+              <ul>
+                <li>Mechanical datums: machined surfaces, pins, bores.</li>
+                <li>Optical datums: lens vertex, optical axis, best-fit plane.</li>
+                <li>Design aims to align mechanical datums to optical datums with measurable relationships.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Alignment plan</p>
+              <h3>Alignment Plan & Adjusters</h3>
+              <p>
+                Alignment is not an afterthought; it is planned from the design stage.
+              </p>
+              <ul>
+                <li>Identify which elements have built-in adjustability (tip/tilt, decenter, focus).</li>
+                <li>Use alignment targets (pinhole, crosshair, fiducial marks) and test beams.</li>
+                <li>Sequence: rough mechanical alignment → optical alignment using autocollimation, interferometry or imaging tests.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Vibration & structural -->
+        <section id="vibration-structural" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Vibration, Structural Stiffness & Modal Behaviour</h2>
+              <p class="topic-meta">
+                How structural modes and vibration affect optical performance and what
+                design strategies are used to mitigate them.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Modes</p>
+              <h3>Structural Modes & First Eigenfrequency</h3>
+              <p>
+                Structures have natural resonances where response to vibration is amplified.
+              </p>
+              <ul>
+                <li>First eigenfrequency (fundamental mode) often used as stiffness metric.</li>
+                <li>Keep critical modes above excitation frequencies (e.g., launch or platform vibration).</li>
+                <li>FEA (Finite Element Analysis) used to predict mode shapes & frequencies.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Dynamic stability</p>
+              <h3>Dynamic Stability of Optical Alignment</h3>
+              <p>
+                Vibrations cause relative motion of optics → image jitter & blur.
+              </p>
+              <ul>
+                <li>Rigid, well-coupled mounts reduce relative motion.</li>
+                <li>Damping materials or tuned mass dampers can reduce peak responses.</li>
+                <li>Mounting orientations and support locations chosen to minimise distortion of optical surfaces.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Shock</p>
+              <h3>Shock & Handling Loads</h3>
+              <p>
+                Systems must survive discrete shocks (drops, launch events, handling).
+              </p>
+              <ul>
+                <li>Design with safety factors on stresses in glass & mounts.</li>
+                <li>Use compliant pads and retainers to distribute loads.</li>
+                <li>Qualification via shock testing, vibe testing and inspection afterwards.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. Thermal & environmental -->
+        <section id="thermal-environmental" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Thermal & Environmental Design</h2>
+              <p class="topic-meta">
+                Thermal gradients, vacuum/pressure, humidity and contamination control and
+                their impact on optomechanical design.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Temperature</p>
+              <h3>Thermal Gradients & Distortion</h3>
+              <p>
+                Non-uniform temperature leads to differential expansion and index gradients.
+              </p>
+              <ul>
+                <li>Cause rigid-body motion of elements and bending of structures.</li>
+                <li>Important in space instruments, outdoor systems and high-power laser optics.</li>
+                <li>Mitigate by symmetric design, insulation, controlled warm-up and low-CTE materials.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Environment</p>
+              <h3>Vacuum, Pressure & Humidity Considerations</h3>
+              <p>
+                Environment can change loads and failure modes.
+              </p>
+              <ul>
+                <li>Vacuum: outgassing of materials, trapped volumes, venting holes in mounts.</li>
+                <li>Pressure changes: windows experience pressure differentials → bending.</li>
+                <li>Humidity: corrosion, fogging; need sealing and desiccants in some systems.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Cleanliness</p>
+              <h3>Contamination & Cleanliness</h3>
+              <p>
+                Small contamination on optics can severely degrade performance.
+              </p>
+              <ul>
+                <li>Clean assembly areas, gloves, controlled handling procedures.</li>
+                <li>Design mounts for easy cleaning and minimal particle generation.</li>
+                <li>Use covers, purging, baffles to protect optics in operation.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 8. Packaging & integration -->
+        <section id="packaging-integration" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Packaging, Tolerances & Integration with Optics</h2>
+              <p class="topic-meta">
+                How mechanical tolerances translate into optical performance and how
+                packaging interacts with optical design.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Tolerance mapping</p>
+              <h3>Mapping Mechanical Tolerances to Optical Errors</h3>
+              <p>
+                Optical design tolerancing defines allowable decenter/tilt; mechanical design must realize it.
+              </p>
+              <ul>
+                <li>Mechanical drawings specify tighter tolerances on key datums.</li>
+                <li>Assembly fixtures used to align parts beyond what simple dimensions guarantee.</li>
+                <li>Worst-case and RSS (root-sum-square) methods combine tolerances in budget.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Assembly</p>
+              <h3>Assembly Philosophy: Build-to-Print vs Align-as-You-Go</h3>
+              <p>
+                Two extremes of how much alignment is left for assembly.
+              </p>
+              <ul>
+                <li>Build-to-print: rely on machining tolerances; minimal adjustable DOFs.</li>
+                <li>Align-as-you-go: looser machining but more alignment effort with adjusters.</li>
+                <li>Real systems often mix both approaches depending on cost vs performance.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Form factor</p>
+              <h3>Packaging & Form Factor Constraints</h3>
+              <p>
+                Mechanical envelope, mass and interfaces come from system-level requirements.
+              </p>
+              <ul>
+                <li>Limited length/diameter may force folding mirrors, compact lens groups.</li>
+                <li>Mechanical interfaces (bolts, rails) must not block apertures or adjustment screws.</li>
+                <li>Access for maintenance and re-alignment should be considered early.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 9. Advanced topics -->
+        <section id="advanced-topics-om" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Advanced / Specialised OptoMechanical Topics</h2>
+              <p class="topic-meta">
+                Flexures, space optics, lightweighted mirrors and precision mechanisms used
+                in high-end optical instruments.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Flexures</p>
+              <h3>Flexure Mounts</h3>
+              <p>
+                Flexures use elastic deformation for motion or constraint instead of sliding contacts.
+              </p>
+              <ul>
+                <li>Advantages: no backlash, high repeatability, vacuum compatible.</li>
+                <li>Used for fine focus, tip–tilt adjust, and compliant lens/mirror mounts.</li>
+                <li>Design must keep stresses within fatigue limits over full temperature/load range.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Lightweighting</p>
+              <h3>Lightweighted Mirrors & Structures</h3>
+              <p>
+                Removing unnecessary material reduces mass while maintaining stiffness.
+              </p>
+              <ul>
+                <li>Back side pockets, ribbing and honeycomb cores are typical patterns.</li>
+                <li>Optimised using FEA to keep surface deflection within optical limits.</li>
+                <li>Critical for space telescopes and airborne systems.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Space optics</p>
+              <h3>Spaceborne Optical Systems (Concept)</h3>
+              <p>
+                Space environments drive some of the most stringent optomechanical designs.
+              </p>
+              <ul>
+                <li>Must survive launch loads then operate in vacuum and large ΔT.</li>
+                <li>Often use kinematic mounting, low-CTE materials and extensive thermal analysis.</li>
+                <li>On-orbit re-alignment is difficult → heavy emphasis on ground testing and stability.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

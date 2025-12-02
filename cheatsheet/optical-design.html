@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Optical System Design & Analysis – Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">OD</div>
+        <div>
+          <div class="brand-text-main">Optical System Design & Analysis</div>
+          <div class="brand-text-sub">From paraxial layout to aberration control</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        Optical Design · Core deck
+      </span>
+      <h1 class="hero-title">
+        Optical System <span>Design & Analysis Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet compresses your optical design question bank: paraxial layout, Seidel and higher-order
+        aberrations, ray tracing and image evaluation, reflective vs refractive systems, high-NA/non-paraxial
+        effects, optimization and tolerancing, and “real lens” design trade-offs.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#aberrations-fundamental">Aberrations – Fundamentals & Seidel Terms</a></li>
+          <li><a href="#advanced-aberrations">Advanced Aberration Theory & Field Behaviour</a></li>
+          <li><a href="#ray-tracing">Ray Tracing & Image Evaluation</a></li>
+          <li><a href="#lens-design-optimization">Lens Design & Optimization Workflow</a></li>
+          <li><a href="#refractive-systems">Refractive Systems & Lens Classifications</a></li>
+          <li><a href="#reflective-systems">Reflective Systems & Telescopes</a></li>
+          <li><a href="#high-na-nonparaxial">High-NA & Non-Paraxial Systems</a></li>
+          <li><a href="#computational-practical">Computational & Practical Design Questions</a></li>
+          <li><a href="#advanced-high-performance">Advanced Design & High-Performance Optics</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>Optical System Design & Analysis</h1>
+          <p>
+            In VIVA, most questions boil down to: “What is the aberration?”, “How does it show up in
+            images or ray fans?”, “How can we reduce it by design choices?” and “How do software tools
+            support this?”. Each card here is tuned to answer exactly that type of question.
+          </p>
+        </header>
+
+        <!-- 1. Aberrations – fundamentals -->
+        <section id="aberrations-fundamental" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Aberrations – Fundamentals & Seidel Terms</h2>
+              <p class="topic-meta">
+                Primary (Seidel) aberrations, longitudinal vs transverse errors and how these map
+                to spot shapes and blur in the image plane.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Definition</p>
+              <h3>What is an Aberration?</h3>
+              <p>
+                Aberrations are deviations from ideal (Gaussian) imaging, causing rays from a point
+                object to not focus to a perfect point.
+              </p>
+              <ul>
+                <li>Result: blur, distortion or shape changes of point/line images.</li>
+                <li>Wave view: wavefront deviates from ideal spherical wavefront.</li>
+                <li>Ray view: ray intercepts differ from paraxial predictions.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Seidel 5</p>
+              <h3>Seidel Primary Aberrations (Third-Order)</h3>
+              <p>
+                For rotationally symmetric systems, the five classical Seidel aberrations are:
+              </p>
+              <ul>
+                <li>Spherical aberration (on-axis, aperture dependent).</li>
+                <li>Coma (off-axis, aperture × field dependent).</li>
+                <li>Astigmatism & field curvature (off-axis, field dependent).</li>
+                <li>Distortion (geometric mapping error, mainly field dependent).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Longitudinal vs transverse</p>
+              <h3>Longitudinal vs Transverse Aberrations</h3>
+              <p>
+                Same aberration can be expressed as focus shift (longitudinal) or lateral error.
+              </p>
+              <ul>
+                <li>Longitudinal: Δz along axis; e.g., marginal rays focus closer than paraxial rays.</li>
+                <li>Transverse: lateral intercept error in image plane; relates to blur size.</li>
+                <li>Spot diagrams and ray intercept curves visualize transverse aberrations.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Advanced aberrations -->
+        <section id="advanced-aberrations" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Advanced Aberration Theory & Field Behaviour</h2>
+              <p class="topic-meta">
+                Higher-order aberrations, field dependence and how modern design uses wavefront
+                or Zernike descriptions rather than only Seidel terms.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Higher order</p>
+              <h3>Beyond Third Order: Higher-Order Aberrations</h3>
+              <p>
+                Real systems often operate outside strict third-order validity, especially
+                with high NA and wide fields.
+              </p>
+              <ul>
+                <li>Aberration contributions from 5th, 7th order terms etc. become important.</li>
+                <li>Classical Seidel picture still useful qualitatively, but quantitative
+                    analysis uses full wavefront expansions.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Zernike</p>
+              <h3>Zernike Polynomials for Aberration Description</h3>
+              <p>
+                Wavefront over a circular pupil is often expanded in Zernike polynomials.
+              </p>
+              <ul>
+                <li>Orthogonal basis on the unit circle; each term linked to an aberration type.</li>
+                <li>Examples: defocus, astigmatism, coma, trefoil, spherical, etc.</li>
+                <li>Directly used in interferometer wavefront maps and AO systems.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Field behaviour</p>
+              <h3>Field Dependence of Aberrations</h3>
+              <p>
+                Different aberrations grow differently with field angle and pupil coordinate.
+              </p>
+              <ul>
+                <li>Spherical: primarily aperture (pupil) dependent; affects on-axis and off-axis.</li>
+                <li>Coma: ∝ field · pupil²; star images turn into “comet” shapes off-axis.</li>
+                <li>Astigmatism/field curvature: field dependent; difference between sagittal & tangential focus.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Ray tracing & image evaluation -->
+        <section id="ray-tracing" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Ray Tracing & Image Evaluation</h2>
+              <p class="topic-meta">
+                How design software uses ray tracing to predict imaging performance and generate
+                spot diagrams, ray fans and MTF curves.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Types of rays</p>
+              <h3>Paraxial vs Real Ray Tracing</h3>
+              <p>
+                Two levels of ray tracing are commonly used.
+              </p>
+              <ul>
+                <li>Paraxial: uses small-angle approximations; good for first-order properties
+                    (focal length, magnification, principal planes).</li>
+                <li>Real (exact) ray tracing: uses Snell’s law exactly; reveals aberrations.</li>
+                <li>Design tools do real ray tracing by default to evaluate performance.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Diagnostics</p>
+              <h3>Spot Diagrams & Ray Fan Plots</h3>
+              <p>
+                Visual diagnostics used to interpret aberrations in design software.
+              </p>
+              <ul>
+                <li>Spot diagram: distribution of intersection points of many rays at image plane.</li>
+                <li>Ray fan: plot of ray intercept vs pupil coordinate (X, Y fans).</li>
+                <li>Distinct patterns correspond to spherical, coma, astigmatism etc.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">MTF</p>
+              <h3>MTF-Based Image Quality Evaluation</h3>
+              <p>
+                MTF curves compare system performance to diffraction limit across spatial frequencies.
+              </p>
+              <ul>
+                <li>MTF drop indicates loss of contrast at given spatial frequency.</li>
+                <li>Polychromatic MTF accounts for realistic broadband performance.</li>
+                <li>Often used for specification and comparison of lens designs.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. Lens design & optimization workflow -->
+        <section id="lens-design-optimization" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Lens Design & Optimization Workflow</h2>
+              <p class="topic-meta">
+                From first-order layout to fully optimized design using merit functions and
+                automatic optimization in software.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">First-order</p>
+              <h3>First-Order Layout</h3>
+              <p>
+                Start with paraxial analysis to satisfy basic imaging constraints.
+              </p>
+              <ul>
+                <li>Given object distance, image distance, F/#, field of view → choose focal lengths.</li>
+                <li>Decide number of elements, types (positive/negative, cemented groups).</li>
+                <li>Place stops and pupils to control vignetting and aberration distribution.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Merit function</p>
+              <h3>Merit Function & Optimization</h3>
+              <p>
+                Design software uses a merit function that quantifies “badness” of a design.
+              </p>
+              <ul>
+                <li>Merit function includes contributions from aberrations, MTF, distortion, constraints.</li>
+                <li>Variables: radii, thicknesses, glass types, aspheric coefficients, tilts/decenters.</li>
+                <li>Local or global optimization algorithms search for parameter sets that minimize merit.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Balancing</p>
+              <h3>Aberration Balancing in Multi-Element Lenses</h3>
+              <p>
+                Different elements contribute with opposite signs to the same aberration.
+              </p>
+              <ul>
+                <li>Positive elements often introduce spherical and chromatic aberration.</li>
+                <li>Negative elements used to balance these while maintaining focal length.</li>
+                <li>Classic designs (doublets, triplets, Tessar, Petzval) embody such balancing strategies.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Refractive systems -->
+        <section id="refractive-systems" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Refractive Systems & Lens Classifications</h2>
+              <p class="topic-meta">
+                Common refractive lens families, what they’re used for, and which aberrations
+                they are good at controlling.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Singlets & doublets</p>
+              <h3>Singlets, Doublets & Achromats</h3>
+              <p>
+                Small building blocks that appear in larger designs.
+              </p>
+              <ul>
+                <li>Singlet: single lens element; limited aberration correction.</li>
+                <li>Achromatic doublet: crown + flint cemented; corrects primary chromatic and some spherical aberration.</li>
+                <li>Apochromats extend color correction using extra elements or special glasses.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Imaging lenses</p>
+              <h3>Classic Imaging Lens Types</h3>
+              <p>
+                Families like Tessar, Petzval, Double-Gauss are standard starting points.
+              </p>
+              <ul>
+                <li>Double-Gauss: good for fast, normal focal length lenses (50 mm f/1.4 style).</li>
+                <li>Petzval: wide-aperture, field-curvature limited; basis for some fast lenses.</li>
+                <li>Telephoto & retrofocus: compact long/short systems using negative groups.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Zooms</p>
+              <h3>Zoom Lens Concepts (High Level)</h3>
+              <p>
+                Zooms vary focal length while keeping image plane approximately fixed.
+              </p>
+              <ul>
+                <li>Use moving groups: variator, compensator and sometimes relay groups.</li>
+                <li>Maintain focus and aberration correction over zoom range.</li>
+                <li>More variables and constraints → heavy use of optimization and tolerancing tools.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Reflective systems -->
+        <section id="reflective-systems" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Reflective Systems & Telescopes</h2>
+              <p class="topic-meta">
+                Mirror-based systems, their aberrations and common telescope configurations.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Mirrors</p>
+              <h3>Advantages of Mirror Systems</h3>
+              <p>
+                Reflective systems avoid many limitations of lenses, especially for wide spectral ranges.
+              </p>
+              <ul>
+                <li>No chromatic aberration from reflection (angle same for all λ at given n).</li>
+                <li>Large apertures practical using lightweight mirrors and segments.</li>
+                <li>Still suffer from spherical, coma, astigmatism etc. depending on shape.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Telescopes</p>
+              <h3>Basic Telescope Types</h3>
+              <p>
+                Common two-mirror designs use combinations of conics.
+              </p>
+              <ul>
+                <li>Cassegrain: parabolic primary + hyperbolic secondary → compact long-focus system.</li>
+                <li>Gregorian, Ritchey–Chrétien variants optimize field and aberrations.</li>
+                <li>Field corrector lenses sometimes added near focus for wide-field imaging.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Field correction</p>
+              <h3>Wide-Field Reflective Systems</h3>
+              <p>
+                Advanced telescopes use additional mirrors/lenses to flatten field and control aberrations.
+              </p>
+              <ul>
+                <li>Three-mirror anastigmats (TMA) correct spherical, coma and astigmatism over wide field.</li>
+                <li>Off-axis segments avoid central obstruction and ghosting in some designs.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. High-NA & non-paraxial -->
+        <section id="high-na-nonparaxial" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">High-NA & Non-Paraxial Systems</h2>
+              <p class="topic-meta">
+                Where paraxial approximations break down and vector nature of light and
+                more exact diffraction analysis become important.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Limits</p>
+              <h3>Breakdown of Paraxial Approximation</h3>
+              <p>
+                High numerical aperture or very wide fields require non-paraxial treatment.
+              </p>
+              <ul>
+                <li>Large angles → sinθ, tanθ no longer ≈ θ.</li>
+                <li>Aberration behavior differs significantly from third-order theory.</li>
+                <li>Vector diffraction and polarization effects cannot be ignored near focus.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">High-NA imaging</p>
+              <h3>High-NA Microscopy Objectives</h3>
+              <p>
+                Objectives with NA &gt; 0.9 in immersion systems push design and manufacturing limits.
+              </p>
+              <ul>
+                <li>Complex multi-element designs with aspheres and special glasses.</li>
+                <li>Must correct spherical, coma, astigmatism, field curvature and chromatic aberrations simultaneously.</li>
+                <li>Need accurate modeling of pupil aberrations and vector PSF.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Telecentric</p>
+              <h3>Telecentric Systems</h3>
+              <p>
+                Designed so chief rays are parallel to axis in object or image space.
+              </p>
+              <ul>
+                <li>Object-space telecentric: magnification insensitive to object distance (useful in metrology).</li>
+                <li>Image-space telecentric: constant chief-ray angle at sensor, good for imaging onto microlens arrays, etc.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 8. Computational & practical -->
+        <section id="computational-practical" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Computational & Practical Design Questions</h2>
+              <p class="topic-meta">
+                Tolerancing, Monte Carlo, and the link between design data and real manufactured
+                systems with alignment errors and environment.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Tolerancing</p>
+              <h3>Optical Tolerancing</h3>
+              <p>
+                Tolerancing studies how small deviations in parameters affect performance.
+              </p>
+              <ul>
+                <li>Parameters: radii, thickness, decenter, tilt, index, wedge, surface figure.</li>
+                <li>Metric: change in MTF, wavefront error, image shift etc.</li>
+                <li>Results guide manufacturing specs and alignment procedures.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Monte Carlo</p>
+              <h3>Monte Carlo Analysis</h3>
+              <p>
+                Randomized sampling of tolerances simulates a population of manufactured lenses.
+              </p>
+              <ul>
+                <li>Each run: random perturbations within tolerance limits.</li>
+                <li>Analyze distribution of performance metrics vs required spec.</li>
+                <li>Helps estimate yield and refine tolerances cost-effectively.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Alignment</p>
+              <h3>Alignment Sensitivity</h3>
+              <p>
+                Some designs are much more sensitive to decenter/tilt than others.
+              </p>
+              <ul>
+                <li>Misalignments introduce coma, astigmatism, image shift.</li>
+                <li>Designers prefer configurations with reduced sensitivity for easier assembly.</li>
+                <li>Tolerancing often separates manufacturing errors from alignment errors.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 9. Advanced & high-performance -->
+        <section id="advanced-high-performance" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Advanced Design & High-Performance Optics</h2>
+              <p class="topic-meta">
+                Aspheres, freeforms, zooms and specialized systems for high-performance imaging
+                and non-imaging optics.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Aspheres</p>
+              <h3>Role of Aspheric Surfaces</h3>
+              <p>
+                Aspheres allow correction of aberrations that would otherwise need many spherical elements.
+              </p>
+              <ul>
+                <li>Reduce spherical aberration and improve off-axis behaviour.</li>
+                <li>Useful in fast, compact systems (e.g., smartphone lenses).</li>
+                <li>Trade-off: harder fabrication & metrology, tighter tolerances.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Freeforms</p>
+              <h3>Freeform Optical Surfaces</h3>
+              <p>
+                Freeforms lack rotational symmetry, giving designer more degrees of freedom.
+              </p>
+              <ul>
+                <li>Enable compact, off-axis systems with good aberration correction.</li>
+                <li>Heavily used in head-up displays, AR/VR and complex imaging systems.</li>
+                <li>Require advanced design tools and metrology (interferometers with CGHs, stitching profilometers).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Non-imaging</p>
+              <h3>Non-Imaging Optics (Conceptual)</h3>
+              <p>
+                Designed for energy transfer and uniformity, not image formation.
+              </p>
+              <ul>
+                <li>Examples: condensers, light pipes, LED collimators, solar concentrators.</li>
+                <li>Figures of merit: efficiency, illuminance uniformity, etendue conservation.</li>
+                <li>Design methods often use ray mapping and optimization distinct from imaging lenses.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adaptive Optics – Concept Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">AO</div>
+        <div>
+          <div class="brand-text-main">Adaptive Optics</div>
+          <div class="brand-text-sub">Wavefront sensing · control · correction</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        Adaptive Optics · Core deck
+      </span>
+      <h1 class="hero-title">
+        Adaptive <span>Optics Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet condenses your Adaptive Optics question bank: atmospheric turbulence & wavefront
+        statistics, wavefront sensing, deformable mirrors and actuators, reconstruction & control
+        algorithms, AO error budget, and real system examples / future directions.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#ao-systems">Adaptive Optics System Basics</a></li>
+          <li><a href="#turbulence-models">Atmospheric Turbulence: Sources & Models</a></li>
+          <li><a href="#optical-effects">Optical Effects of Turbulence</a></li>
+          <li><a href="#wavefront-sensing">Wavefront Sensing & Error Analysis</a></li>
+          <li><a href="#dm-actuators">Deformable Mirrors & Actuator Analysis</a></li>
+          <li><a href="#control-systems">Control Systems & Feedback Implementation</a></li>
+          <li><a href="#performance-errors">AO Performance & Error Budget</a></li>
+          <li><a href="#practical-examples">Practical Aspects & Real System Examples</a></li>
+          <li><a href="#research-nextgen">Research & Next-Generation Topics</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>Adaptive Optics</h1>
+          <p>
+            In AO questions, examiners usually probe whether you understand the AO loop:
+            <strong>disturbance (turbulence) → wavefront measurement → reconstruction → correction
+            → residual error</strong>. Each block below is designed to let you verbally walk
+            through that loop with confidence.
+          </p>
+        </header>
+
+        <!-- 1. AO system basics -->
+        <section id="ao-systems" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Adaptive Optics System Basics</h2>
+              <p class="topic-meta">
+                High-level AO architecture: components, aim of the loop, and where AO is used
+                (astronomy, microscopy, vision, laser systems).
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Definition</p>
+              <h3>What is Adaptive Optics?</h3>
+              <p>
+                Adaptive optics actively measures and corrects wavefront distortions in real time
+                to restore near-diffraction-limited performance.
+              </p>
+              <ul>
+                <li>Wavefront distortions arise from turbulence, thermal gradients, imperfect optics, etc.</li>
+                <li>AO loop: Wavefront Sensor (WFS) → Real-Time Controller (RTC) → Deformable Mirror (DM).</li>
+                <li>Used in astronomical telescopes, retinal imaging, high-power lasers, free-space links.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Components</p>
+              <h3>Core Components of an AO System</h3>
+              <p>
+                Generic AO architecture has four main blocks:
+              </p>
+              <ul>
+                <li>Guide source (natural star or laser guide star).</li>
+                <li>Wavefront sensor: measures distorted wavefront slopes/phase.</li>
+                <li>Deformable element (DM / SLM / tip-tilt mirror) to apply correction.</li>
+                <li>Real-time control computer to compute actuator commands at kHz rates.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Use cases</p>
+              <h3>Major Application Areas</h3>
+              <p>
+                AO appears in multiple optical engineering sub-fields:
+              </p>
+              <ul>
+                <li>Astronomy: correct atmospheric turbulence for large telescopes.</li>
+                <li>Vision science: AO retinal imaging, enabling diffraction-limited views of photoreceptors.</li>
+                <li>Microscopy: compensate sample-induced aberrations in thick tissues.</li>
+                <li>Laser propagation: pre-compensation for directed energy or deep-tissue focusing.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Turbulence: sources & models -->
+        <section id="turbulence-models" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Atmospheric Turbulence: Sources & Models</h2>
+              <p class="topic-meta">
+                Why turbulence arises, Kolmogorov model, Fried parameter r₀ and related scales
+                that appear in AO performance formulas.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Origin</p>
+              <h3>Origin of Atmospheric Turbulence</h3>
+              <p>
+                Refractive index fluctuations caused by temperature and pressure inhomogeneities
+                in moving air.
+              </p>
+              <ul>
+                <li>Convective cells, wind shear and terrain create eddies of many sizes.</li>
+                <li>Refractive index n varies slightly → phase distortions of optical wavefronts.</li>
+                <li>Statistical description needed rather than deterministic.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Kolmogorov</p>
+              <h3>Kolmogorov Turbulence Model</h3>
+              <p>
+                Widely used statistical model for inertial range of turbulence.
+              </p>
+              <ul>
+                <li>Assumes energy cascade from large to small scales with power-law behaviour.</li>
+                <li>Phase structure function: D<sub>φ</sub>(ρ) ∝ (ρ / r₀)<sup>5/3</sup>.</li>
+                <li>Inner and outer scales define limits of validity.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">r₀ & τ₀</p>
+              <h3>Fried Parameter r₀ & Coherence Time τ₀</h3>
+              <p>
+                r₀ is the atmospheric coherence length; τ₀ characterizes temporal change.
+              </p>
+              <ul>
+                <li>r₀: diameter over which wavefront RMS error ≈ 1 rad (≈ λ/2π); effective aperture for seeing-limited imaging.</li>
+                <li>Seeing-limited resolution: θ<sub>seeing</sub> ≈ λ / r₀.</li>
+                <li>τ₀: coherence time sets required AO loop frequency (f ~ 1/τ₀).</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Optical effects of turbulence -->
+        <section id="optical-effects" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Optical Effects of Turbulence</h2>
+              <p class="topic-meta">
+                How turbulence-degraded wavefronts appear in images, PSF, OTF/MTF and speckle behaviour.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">PSF</p>
+              <h3>Turbulence-Degraded PSF</h3>
+              <p>
+                Instead of a clean diffraction-limited Airy pattern, turbulence yields speckled, broadened PSFs.
+              </p>
+              <ul>
+                <li>Phase errors across pupil distort interference pattern at focus.</li>
+                <li>Long-exposure PSF: blur representing average seeing.</li>
+                <li>Short-exposure PSF: speckle pattern changing in time.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">MTF</p>
+              <h3>Effect on OTF/MTF</h3>
+              <p>
+                Turbulence lowers modulation transfer, especially at high spatial frequencies.
+              </p>
+              <ul>
+                <li>Effective OTF = product of diffraction-limited OTF and turbulence term.</li>
+                <li>Even large telescopes behave like smaller “effective” aperture ~ r₀ without AO.</li>
+                <li>AO aims to restore OTF closer to diffraction-limited curve.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Scintillation</p>
+              <h3>Scintillation & Intensity Fluctuations</h3>
+              <p>
+                Amplitude fluctuations arise from interference of shifted wavefronts.
+              </p>
+              <ul>
+                <li>Scintillation: rapid twinkling in intensity (especially for point sources).</li>
+                <li>More significant for long propagation distances and strong turbulence.</li>
+                <li>AO mainly addresses phase, but some architectures also consider amplitude control.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. Wavefront sensing -->
+        <section id="wavefront-sensing" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Wavefront Sensing & Error Analysis</h2>
+              <p class="topic-meta">
+                Shack–Hartmann and other WFS types, how slopes/phase are derived, and basic
+                reconstruction ideas (e.g., zonal vs modal).
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">SH-WFS</p>
+              <h3>Shack–Hartmann Wavefront Sensor</h3>
+              <p>
+                A lenslet array samples incoming wavefront and measures local slopes.
+              </p>
+              <ul>
+                <li>Each lenslet forms a spot on detector; displacement from reference gives local tilt.</li>
+                <li>Data: (x, y) slopes for each subaperture.</li>
+                <li>Advantages: robust, simple, widely used in astronomical and lab AO.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Other WFS</p>
+              <h3>Other Wavefront Sensor Types (Conceptual)</h3>
+              <p>
+                Different WFS architectures trade sensitivity vs dynamic range vs complexity.
+              </p>
+              <ul>
+                <li>Curvature WFS: measures intensity in defocused planes.</li>
+                <li>Pyramid WFS: splits pupil images; high sensitivity to low-order aberrations.</li>
+                <li>Interferometric/phase diversity methods for high-precision static measurements.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Reconstruction</p>
+              <h3>Wavefront Reconstruction (Zonal vs Modal)</h3>
+              <p>
+                Reconstructing full wavefront from measured data is an inverse problem.
+              </p>
+              <ul>
+                <li>Zonal: reconstruct phase on a grid (Hudgin, Fried, Southwell geometries).</li>
+                <li>Modal: expand wavefront in basis (e.g., Zernike) and fit coefficients.</li>
+                <li>Linear system: s = H φ + noise; reconstruction uses pseudo-inverse or regularized solution.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Deformable mirrors & actuators -->
+        <section id="dm-actuators" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Deformable Mirrors & Actuator Analysis</h2>
+              <p class="topic-meta">
+                Types of DMs, influence functions, actuator spacing vs r₀, and stroke/speed trade-offs.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Types</p>
+              <h3>Types of Deformable Mirrors</h3>
+              <p>
+                DMs physically change mirror shape to cancel measured wavefront errors.
+              </p>
+              <ul>
+                <li>Continuous-face-sheet DMs with underlying actuators (piezo, MEMS).</li>
+                <li>Segmented mirrors: each segment tip/tilt/piston independently.</li>
+                <li>Spatial light modulators (SLMs): phase modulation via liquid crystals (slower, but flexible).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Influence</p>
+              <h3>Influence Functions & DM Fitting Error</h3>
+              <p>
+                Influence function = DM surface response to a unit command on an actuator.
+              </p>
+              <ul>
+                <li>Wavefront is linear combination of influence functions weighted by actuator commands.</li>
+                <li>Fitting error: residual after best-fit DM shape to turbulence wavefront.</li>
+                <li>Actuator pitch should be ≲ r₀ to sample turbulence adequately.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Stroke & bandwidth</p>
+              <h3>Stroke & Temporal Bandwidth</h3>
+              <p>
+                DM must have enough stroke (amplitude) and speed to follow turbulence.
+              </p>
+              <ul>
+                <li>Stroke: maximum peak-to-valley correction; must exceed expected wavefront error.</li>
+                <li>Temporal bandwidth: DM + controller must respond faster than turbulence changes (∼ 1/τ₀).</li>
+                <li>Trade-offs between stroke, speed, actuator count and cost.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Control systems & feedback -->
+        <section id="control-systems" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Control Systems & Feedback Implementation</h2>
+              <p class="topic-meta">
+                Discrete-time AO loop, interaction matrix, basic controllers (integrator, predictive),
+                and stability considerations.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Loop</p>
+              <h3>AO Loop Structure</h3>
+              <p>
+                The AO control loop updates DM commands based on WFS measurements.
+              </p>
+              <ul>
+                <li>Interaction matrix G maps DM commands → WFS slopes.</li>
+                <li>Reconstructor R maps slopes → DM commands (R ≈ G⁺).</li>
+                <li>Update law (simple integrator): a<sub>k+1</sub> = a<sub>k</sub> + g · R s<sub>k</sub>.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Control</p>
+              <h3>Basic AO Controllers</h3>
+              <p>
+                Controllers determine how aggressively AO responds to measured error.
+              </p>
+              <ul>
+                <li>Integrating control: robust and simple; gain g tuned for stability vs speed.</li>
+                <li>Predictive control: uses temporal statistics of turbulence to reduce lag error.</li>
+                <li>Modal control: different gains per mode (e.g., lower gain for noisy high-order modes).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Stability</p>
+              <h3>Stability & Loop Delay</h3>
+              <p>
+                Finite loop delay and noise can destabilize AO loop if gain is too high.
+              </p>
+              <ul>
+                <li>Loop delay arises from WFS readout, computation and DM response.</li>
+                <li>Higher gain improves low-frequency correction but amplifies noise and risk of oscillations.</li>
+                <li>Control design often uses Bode plots, eigenvalue analysis or time-domain simulation.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. Performance & error budget -->
+        <section id="performance-errors" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">AO Performance & Error Budget</h2>
+              <p class="topic-meta">
+                How we quantify “how good” an AO system is: Strehl ratio, residual wavefront error,
+                and main error contributors (fitting, temporal, noise, aliasing, NCPA).
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Strehl</p>
+              <h3>Strehl Ratio</h3>
+              <p>
+                Strehl ratio S compares peak intensity with AO to an ideal diffraction-limited system.
+              </p>
+              <ul>
+                <li>S = I<sub>peak, actual</sub> / I<sub>peak, ideal</sub>.</li>
+                <li>For small phase errors (RMS σ<sub>φ</sub>): S ≈ exp(−σ<sub>φ</sub>²).</li>
+                <li>Strehl ≈ 1 → near-diffraction-limited; Strehl &lt; 0.1 → strongly aberrated.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Error terms</p>
+              <h3>Major AO Error Terms</h3>
+              <p>
+                Overall wavefront error is a combination of multiple contributions.
+              </p>
+              <ul>
+                <li>Fitting error: finite actuators cannot perfectly match turbulence.</li>
+                <li>Temporal (lag) error: turbulence changes between measurement and correction.</li>
+                <li>Measurement noise, aliasing (undersampled slopes), non-common-path aberrations (NCPA).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Budget</p>
+              <h3>Error Budget & Design Trade-Offs</h3>
+              <p>
+                AO design chooses actuator count, WFS resolution and loop frequency to balance errors.
+              </p>
+              <ul>
+                <li>More actuators → lower fitting error but more measurements and computation.</li>
+                <li>Higher frame rate → lower lag error but more noise per frame (fewer photons).</li>
+                <li>System-level requirement: residual error small enough to achieve target Strehl.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 8. Practical & examples -->
+        <section id="practical-examples" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Practical Aspects & Real System Examples</h2>
+              <p class="topic-meta">
+                What real AO systems look like in practice: calibration, interaction matrix
+                measurement, and example AO systems in astronomy and microscopy.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Calibration</p>
+              <h3>Interaction Matrix Calibration</h3>
+              <p>
+                The interaction matrix relates DM actuator commands to WFS measurements.
+              </p>
+              <ul>
+                <li>Apply known “poke” patterns to actuators; record resulting WFS slopes.</li>
+                <li>Columns of G are slope responses to each actuator basis vector.</li>
+                <li>Reconstructor R computed from G (pseudo-inverse, with regularization if needed).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Astronomy</p>
+              <h3>Typical Astronomical AO System</h3>
+              <p>
+                Large telescopes use AO modules near the focal plane.
+              </p>
+              <ul>
+                <li>Pick-off optics route guide star light to WFS; science beam corrected by DM.</li>
+                <li>Laser guide stars (LGS) created in sodium layer when bright natural stars are absent.</li>
+                <li>Multi-conjugate AO uses several DMs at different altitudes for wide-field correction.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Microscopy</p>
+              <h3>AO in Microscopy & Vision</h3>
+              <p>
+                AO corrects sample-induced aberrations in microscopes and ocular aberrations in the eye.
+              </p>
+              <ul>
+                <li>Sensor-based AO: uses Shack–Hartmann WFS on reflected light.</li>
+                <li>Sensorless AO: uses image-based metrics to optimize DM shape (no explicit WFS).</li>
+                <li>Retinal AO enables imaging of individual cones/rods in living eye.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 9. Research & next-gen -->
+        <section id="research-nextgen" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Research & Next-Generation Topics</h2>
+              <p class="topic-meta">
+                Emerging AO directions: multi-object AO, tomographic AO, machine-learning-based
+                reconstruction and extreme AO.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Tomographic</p>
+              <h3>Tomographic & Multi-Conjugate AO</h3>
+              <p>
+                Uses multiple guide stars and DMs to correct 3D volume of turbulence.
+              </p>
+              <ul>
+                <li>Reconstructs turbulence layers at different altitudes (tomography).</li>
+                <li>DMs conjugated to different heights correct larger field of view.</li>
+                <li>Core idea in MCAO (Multi-Conjugate AO) for wide-field astronomy.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Extreme AO</p>
+              <h3>Extreme AO (ExAO) for High-Contrast Imaging</h3>
+              <p>
+                AO systems dedicated to direct exoplanet imaging require very high Strehl and stability.
+              </p>
+              <ul>
+                <li>High-order DMs (thousands of actuators) and kHz-class WFS.</li>
+                <li>Coronagraphs + AO to suppress starlight and reveal faint companions.</li>
+                <li>Careful control of quasi-static speckles and NCPA.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">ML & computation</p>
+              <h3>Machine Learning & Advanced Reconstruction</h3>
+              <p>
+                Data-driven methods can improve AO performance beyond simple linear reconstructions.
+              </p>
+              <ul>
+                <li>Neural networks / Kalman filters for predictive control.</li>
+                <li>Learning-based reconstructor that better handles noise, aliasing and non-linearities.</li>
+                <li>Still an active research area in AO communities.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
