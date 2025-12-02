@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fabrication & Testing – Concept Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">FT</div>
+        <div>
+          <div class="brand-text-main">Fabrication & Testing of Optical Components</div>
+          <div class="brand-text-sub">From raw glass to tested optical systems</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        Fabrication & Testing · Core deck
+      </span>
+      <h1 class="hero-title">
+        Fabrication & <span>Testing Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet condenses your fabrication/testing VIVA bank: optical materials, shaping and
+        polishing, computer-controlled figuring, interferometric and profilometric testing,
+        large mirrors, and practical industrial considerations.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#optical-materials">Optical Materials & Glass Properties</a></li>
+          <li><a href="#fabrication-components">Fabrication of Optical Components & Elements</a></li>
+          <li><a href="#polishing-ccp">Polishing Technologies & Computer-Controlled Polishing</a></li>
+          <li><a href="#surface-form-testing">Surface & Form Testing / Interferometry</a></li>
+          <li><a href="#lens-mirror-testing">Testing of Lenses, Mirrors & Systems</a></li>
+          <li><a href="#large-mirrors-industrial">Large Optical Mirrors & Industrial Aspects</a></li>
+          <li><a href="#advanced-research-ft">Advanced / Research-Level Topics</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>Fabrication & Testing of Optical Components</h1>
+          <p>
+            Think of this as the life cycle of an optic: choose material → rough/finish shape →
+            polish/figure → test → iterate until specs are met → integrate into system.
+            These cards are designed so that you can describe each stage in a clean, exam-friendly way.
+          </p>
+        </header>
+
+        <!-- 1. Optical materials -->
+        <section id="optical-materials" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Optical Materials & Glass Properties</h2>
+              <p class="topic-meta">
+                Glass types, optical constants, dispersion and material selection criteria
+                for lenses and mirrors.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Basics</p>
+              <h3>Key Optical Material Parameters</h3>
+              <p>
+                Choice of material is driven by both optical and mechanical properties.
+              </p>
+              <ul>
+                <li>Refractive index n(λ) and dispersion (Abbe number, partial dispersions).</li>
+                <li>Transmission window (UV–VIS–IR), absorption bands.</li>
+                <li>Mechanical/thermal: hardness, CTE, thermal conductivity, density.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Glasses</p>
+              <h3>Crown vs Flint Glasses</h3>
+              <p>
+                Traditional classification of optical glasses based on index and dispersion.
+              </p>
+              <ul>
+                <li>Crown: lower n, higher Abbe number (low dispersion).</li>
+                <li>Flint: higher n, lower Abbe number (high dispersion).</li>
+                <li>Achromats combine one crown + one flint to control chromatic aberration.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Crystals & ceramics</p>
+              <h3>Crystalline & Ceramic Optical Materials</h3>
+              <p>
+                Beyond standard glasses, special materials are used for IR, high power or special functions.
+              </p>
+              <ul>
+                <li>Crystals: CaF₂, Si, Ge, ZnSe → IR optics, low dispersion, laser windows.</li>
+                <li>Ceramics: transparent Al₂O₃, spinel → high strength, harsh environments.</li>
+                <li>Coatings and surface treatment strongly affect final performance.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Fabrication of components -->
+        <section id="fabrication-components" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Fabrication of Optical Components & Elements</h2>
+              <p class="topic-meta">
+                From raw blanks to ground, centered and edged lenses/mirrors and structured elements.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Sequence</p>
+              <h3>Typical Lens Fabrication Flow</h3>
+              <p>
+                Most classical lens fabrication follows a repeatable chain of operations.
+              </p>
+              <ul>
+                <li>Blank preparation (cutting from melt or stock, blocking).</li>
+                <li>Generating: rough shaping of curvature (curve generator, grinding wheel).</li>
+                <li>Fine grinding → polishing → centering/edging → coating → final inspection.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Generating</p>
+              <h3>Generating & Fine Grinding</h3>
+              <p>
+                Generating establishes approx. surface shape; fine grinding reduces subsurface damage.
+              </p>
+              <ul>
+                <li>Curve generator uses tool motion to approximate desired radius.</li>
+                <li>Abrasives: coarse SiC → finer Al₂O₃/diamond → reduces roughness.</li>
+                <li>Goal: leave enough material for polishing while controlling form.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Special elements</p>
+              <h3>Fabrication of Aspheres & Freeforms (Concept)</h3>
+              <p>
+                Non-spherical and freeform optics often need deterministic machining.
+              </p>
+              <ul>
+                <li>Single-point diamond turning for IR metals/crystals.</li>
+                <li>Sub-aperture polishing, magnetorheological finishing for glass aspheres.</li>
+                <li>Metrology drives the figuring loop (measure → correct → remeasure).</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Polishing & CCP -->
+        <section id="polishing-ccp" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Polishing Technologies & Computer-Controlled Polishing</h2>
+              <p class="topic-meta">
+                Classical pitch polishing, modern sub-aperture tools and computer-controlled
+                figuring for high-precision surfaces.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Classical</p>
+              <h3>Pitch Polishing Basics</h3>
+              <p>
+                Classical lens polishing uses a compliant pitch tool and slurry of fine abrasives.
+              </p>
+              <ul>
+                <li>Pitch conforms to surface; motion averages tool marks → smooth surface.</li>
+                <li>Material removal rate described by Preston’s law: Δh ∝ p · v · t.</li>
+                <li>Well suited for spherical surfaces, moderate accuracy.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Sub-aperture</p>
+              <h3>Sub-Aperture Polishing Tools</h3>
+              <p>
+                Small tools polish local regions and are scanned over the surface.
+              </p>
+              <ul>
+                <li>Examples: bonnet polishing, small lap tools, MRF heads.</li>
+                <li>Enable local correction of residuals from interferometric map.</li>
+                <li>Key for aspheres, freeforms and large optics with tight specs.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">CCP / MRF</p>
+              <h3>Computer-Controlled Polishing (CCP) & MRF</h3>
+              <p>
+                Deterministic process: removal function + dwell time map → controlled figuring.
+              </p>
+              <ul>
+                <li>Removal function measured for given tool & conditions.</li>
+                <li>Dwell time distribution computed to reduce measured error map.</li>
+                <li>MRF (Magnetorheological Finishing) uses magnetically stiffened slurry for highly repeatable removal.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. Surface & form testing / interferometry -->
+        <section id="surface-form-testing" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Surface & Form Testing / Interferometry</h2>
+              <p class="topic-meta">
+                How we measure surface figure, roughness and mid-spatial error using interferometers
+                and profilometers.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Interferometry</p>
+              <h3>Basic Interferometry Concepts</h3>
+              <p>
+                Interferometers compare test wavefront with a reference to reveal phase errors.
+              </p>
+              <ul>
+                <li>Fringes represent contours of equal optical path difference (OPD).</li>
+                <li>Fringe spacing related to slope; curvature leads to fringe curvature.</li>
+                <li>Common setups: Fizeau, Twyman–Green, Mach–Zehnder, Michelson.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Surface figure</p>
+              <h3>Testing Surface Figure with Fizeau Interferometer</h3>
+              <p>
+                Test surface is placed against a high-quality reference flat or sphere.
+              </p>
+              <ul>
+                <li>Reference and test surfaces form cavity → interference pattern.</li>
+                <li>Deviations of fringes from straight/equally spaced indicate figure error.</li>
+                <li>Phase-shifting interferometry quantifies wavefront error numerically.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Roughness</p>
+              <h3>Surface Roughness & Scatter</h3>
+              <p>
+                Very fine-scale surface errors cause scatter and reduce contrast.
+              </p>
+              <ul>
+                <li>Measured using profilometers (contact) or white-light interferometers.</li>
+                <li>RMS roughness and PSD (power spectral density) describe surface statistics.</li>
+                <li>High spatial-frequency errors → veiling glare, stray light issues.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Lens/mirror/system testing -->
+        <section id="lens-mirror-testing" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Testing of Lenses, Mirrors & Optical Systems</h2>
+              <p class="topic-meta">
+                From single-element tests to full-system evaluation: autocollimation,
+                null tests and imaging metrics.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Autocollimation</p>
+              <h3>Autocollimation Tests</h3>
+              <p>
+                A collimated beam reflects off a flat mirror at focus to test lens performance.
+              </p>
+              <ul>
+                <li>Source at lens focus → collimated beam.</li>
+                <li>Flat mirror returns beam back through lens → examine focus quality.</li>
+                <li>Used to test focal length, aberrations and alignment.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Null testing</p>
+              <h3>Null Tests for Aspheric Surfaces</h3>
+              <p>
+                Optical arrangement designed so that ideal surface produces “null” straight fringes.
+              </p>
+              <ul>
+                <li>Use refractive/reflective null optics (computer-generated holograms, compensators).</li>
+                <li>Any residual fringes directly represent aspheric figure error.</li>
+                <li>Standard approach for high-precision aspheres and telescopes.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">System metrics</p>
+              <h3>System-Level Performance Metrics</h3>
+              <p>
+                Final system tests connect fabrication errors to imaging quality.
+              </p>
+              <ul>
+                <li>MTF/PSF measurements: resolution and contrast.</li>
+                <li>Line-of-sight, boresight alignment, field curvature tests.</li>
+                <li>Environmental tests: temperature cycling, vibration and shock.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Large mirrors & industrial aspects -->
+        <section id="large-mirrors-industrial" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Large Optical Mirrors & Industrial / Practical Aspects</h2>
+              <p class="topic-meta">
+                Special challenges in fabricating large optics and how real-world constraints
+                (cost, schedule, manufacturability) affect design choices.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Large mirrors</p>
+              <h3>Challenges in Large Telescope Mirrors</h3>
+              <p>
+                As size increases, mechanical, thermal and metrology issues quickly dominate.
+              </p>
+              <ul>
+                <li>Gravity-induced sag: need lightweighted structures and active supports.</li>
+                <li>Thermal gradients cause figure change; low-CTE materials (Zerodur, ULE).</li>
+                <li>Segmented mirrors require precise phasing and edge control.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Manufacturability</p>
+              <h3>Design for Manufacturability (DFM) in Optics</h3>
+              <p>
+                Optical design must consider how surfaces will actually be made and tested.
+              </p>
+              <ul>
+                <li>Avoid unnecessarily extreme aspheric departures where possible.</li>
+                <li>Use common radii, wedges and glass types to reduce cost.</li>
+                <li>Specify realistic tolerances consistent with tooling and metrology.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Industrial view</p>
+              <h3>Industrial Process Flow & Quality Control</h3>
+              <p>
+                Production optics require stable, repeatable processes with QC gates.
+              </p>
+              <ul>
+                <li>Incoming material inspection → in-process metrology → final acceptance tests.</li>
+                <li>Process control charts monitor removal rates and defect levels.</li>
+                <li>Documentation: traveler sheets, inspection reports, test certificates.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. Advanced / research -->
+        <section id="advanced-research-ft" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Advanced / Research-Level Topics</h2>
+              <p class="topic-meta">
+                Emerging polishing methods, structured surfaces and next-generation metrology ideas.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Structured optics</p>
+              <h3>Diffractive & Meta-Optical Surfaces (Fabrication View)</h3>
+              <p>
+                Fine micro/nano-structured patterns replace traditional curvature to control phase.
+              </p>
+              <ul>
+                <li>Fabrication via lithography, etching, nanoimprint or multi-level machining.</li>
+                <li>Metrology requires profilometry and scatter measurements, not just interferometry.</li>
+                <li>Very sensitive to fabrication tolerances and contamination.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">On-machine</p>
+              <h3>On-Machine Metrology & Feedback</h3>
+              <p>
+                Measurement integrated into fabrication machine to shorten iteration loops.
+              </p>
+              <ul>
+                <li>In-situ interferometry, tactile probes or optical sensors on machine axes.</li>
+                <li>Closed-loop control: measure → compute correction → cut/polish → remeasure.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Automation</p>
+              <h3>Automation & Data-Driven Fabrication</h3>
+              <p>
+                Modern shops use automation and data analytics to stabilize quality.
+              </p>
+              <ul>
+                <li>Recipe-based CCP with stored removal functions and machine states.</li>
+                <li>Statistical analysis of run-to-run variation to refine process windows.</li>
+                <li>Links naturally with optical design tolerancing and Monte Carlo analysis.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

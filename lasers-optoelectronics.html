@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lasers, Semiconductors & Optoelectronics – Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">LS</div>
+        <div>
+          <div class="brand-text-main">Lasers, Semiconductors & Optoelectronics</div>
+          <div class="brand-text-sub">Sources, junctions, detectors & devices</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        Lasers & Optoelectronics · Core deck
+      </span>
+      <h1 class="hero-title">
+        Lasers & <span>Optoelectronic Devices Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet compresses your laser & optoelectronics VIVA questions: laser basics and
+        rate equations, resonators, semiconductor junctions, LEDs & laser diodes, photodetectors,
+        modulation and noise, plus key real-world applications.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#laser-basics">Laser Basics & Rate Equations</a></li>
+          <li><a href="#resonators-beams">Laser Resonators & Beam Properties</a></li>
+          <li><a href="#semiconductor-basics">Semiconductor Basics & Junctions</a></li>
+          <li><a href="#leds-laser-diodes">LEDs & Laser Diodes</a></li>
+          <li><a href="#detectors">Photodetectors & Receiver Front-End</a></li>
+          <li><a href="#modulation-noise">Modulation, Linewidth & Noise</a></li>
+          <li><a href="#applications-advanced-ls">Applications & Advanced Concepts</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>Lasers, Semiconductors & Optoelectronics</h1>
+          <p>
+            The goal here is: if someone asks you <em>“Explain this device”</em>, you can sketch its
+            structure, write 1–2 key equations and list 3–4 main points from memory.
+            Each card below is tuned for that kind of quick verbal answer.
+          </p>
+        </header>
+
+        <!-- 1. Laser basics & rate equations -->
+        <section id="laser-basics" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Laser Basics & Rate Equations</h2>
+              <p class="topic-meta">
+                Stimulated emission, population inversion, gain and simple rate equation picture
+                of laser operation.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Principle</p>
+              <h3>Conditions for Laser Action</h3>
+              <p>
+                LASER = Light Amplification by Stimulated Emission of Radiation.
+              </p>
+              <ul>
+                <li>Stimulated emission coefficient &gt; absorption in active region → net gain.</li>
+                <li>Population inversion: N₂ &gt; N₁ between upper and lower laser levels.</li>
+                <li>Optical feedback: resonator provides multiple passes through gain medium.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Einstein picture</p>
+              <h3>Absorption, Spontaneous & Stimulated Emission</h3>
+              <p>
+                Three fundamental radiative processes described by Einstein coefficients.
+              </p>
+              <ul>
+                <li>Absorption: lower → upper level by photon absorption.</li>
+                <li>Spontaneous emission: random-phase photon, isotropic directions.</li>
+                <li>Stimulated emission: incident photon triggers identical photon (same ν, k, pol.).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Rate model</p>
+              <h3>Simple Laser Rate Equations (Conceptual)</h3>
+              <p>
+                Rate equations track evolution of population inversion and photon number.
+              </p>
+              <ul>
+                <li>dN/dt = pump − decay − stimulated emission term.</li>
+                <li>dS/dt = gain · S − losses + spontaneous emission term (β).</li>
+                <li>Steady state above threshold → constant N ≈ N<sub>thr</sub>, output power ∝ (pump − threshold).</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Resonators & beams -->
+        <section id="resonators-beams" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Laser Resonators & Beam Properties</h2>
+              <p class="topic-meta">
+                Optical cavities, longitudinal/transverse modes, Gaussian beams and quality factor.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Cavity</p>
+              <h3>Optical Resonator Basics</h3>
+              <p>
+                Mirrors form a cavity that selects certain standing-wave field patterns (modes).
+              </p>
+              <ul>
+                <li>Resonance condition: round-trip phase shift = 2πm.</li>
+                <li>Longitudinal modes: discrete frequencies separated by Δν = c / (2nL).</li>
+                <li>Transverse modes: TEM<sub>mn</sub> patterns determined by mirror geometry.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Stability</p>
+              <h3>Resonator Stability Condition</h3>
+              <p>
+                Only certain mirror curvatures and separations form stable cavities.
+              </p>
+              <ul>
+                <li>Parameters: g₁ = 1 − L/R₁, g₂ = 1 − L/R₂.</li>
+                <li>Stability: 0 &lt; g₁g₂ &lt; 1.</li>
+                <li>Stable cavity supports bounded Gaussian-like modes.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Beam quality</p>
+              <h3>Gaussian Beam & M² Factor</h3>
+              <p>
+                Ideal fundamental laser mode is Gaussian; real beams deviate from this.
+              </p>
+              <ul>
+                <li>Waist w₀, Rayleigh range z<sub>R</sub>, divergence θ ~ λ/(πw₀).</li>
+                <li>M² &gt;= 1 quantifies beam quality (1 for ideal Gaussian).</li>
+                <li>Lower M² → better focusability and higher irradiance at focus.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Semiconductor basics & junctions -->
+        <section id="semiconductor-basics" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Semiconductor Basics & Junctions</h2>
+              <p class="topic-meta">
+                Energy bands, carriers, p–n junctions and radiative recombination fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Bands</p>
+              <h3>Band Structure & Bandgap</h3>
+              <p>
+                In semiconductors, allowed energy levels form bands separated by a bandgap E<sub>g</sub>.
+              </p>
+              <ul>
+                <li>Valence band: mostly filled electrons; conduction band: mobile electrons.</li>
+                <li>Direct bandgap: k-conserving transitions → efficient light emission (e.g., GaAs).</li>
+                <li>Indirect bandgap: needs phonon; weak radiative recombination (e.g., Si).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">p–n junction</p>
+              <h3>p–n Junction Under Bias</h3>
+              <p>
+                Basic building block for LEDs, laser diodes and photodiodes.
+              </p>
+              <ul>
+                <li>At equilibrium: depletion region, built-in potential.</li>
+                <li>Forward bias: barrier reduced → injection of carriers across junction.</li>
+                <li>Recombination in active region can be radiative (light) or non-radiative.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Recombination</p>
+              <h3>Radiative vs Non-Radiative Recombination</h3>
+              <p>
+                When an electron recombines with a hole, energy can appear as photon or heat.
+              </p>
+              <ul>
+                <li>Radiative: band-to-band (LED/LD emission). Photon energy ≈ E<sub>g</sub>.</li>
+                <li>Non-radiative: via defects (Shockley–Read–Hall) or Auger processes.</li>
+                <li>Quantum efficiency depends on ratio of these rates.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. LEDs & laser diodes -->
+        <section id="leds-laser-diodes" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">LEDs & Laser Diodes</h2>
+              <p class="topic-meta">
+                Structures, emission characteristics and main comparison points between LEDs
+                and semiconductor lasers.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">LED</p>
+              <h3>Light Emitting Diodes (LEDs)</h3>
+              <p>
+                Spontaneous emission from a forward-biased p–n junction in a direct bandgap semiconductor.
+              </p>
+              <ul>
+                <li>Broad spectral width (tens of nm), Lambertian emission pattern.</li>
+                <li>Lower brightness & lower coupling efficiency into fibers.</li>
+                <li>Advantages: low cost, simple drive, excellent reliability.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">LD</p>
+              <h3>Laser Diodes (LDs)</h3>
+              <p>
+                Add an optical cavity to the LED structure → stimulated emission dominates above threshold.
+              </p>
+              <ul>
+                <li>Active region in double heterostructure or quantum well.</li>
+                <li>Facet reflections form Fabry–Pérot cavity; or gratings for DFB/DBR lasers.</li>
+                <li>Narrow linewidth, high brightness, efficient coupling to fibers/waveguides.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Threshold</p>
+              <h3>Laser Diode L–I Curve & Threshold</h3>
+              <p>
+                Output vs current shows a kink at threshold current I<sub>th</sub>.
+              </p>
+              <ul>
+                <li>Below I<sub>th</sub>: mainly spontaneous emission (LED-like region).</li>
+                <li>Above I<sub>th</sub>: stimulated emission dominates, linear slope efficiency.</li>
+                <li>Temperature strongly affects I<sub>th</sub> and efficiency.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Detectors & receiver -->
+        <section id="detectors" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Photodetectors & Receiver Front-End</h2>
+              <p class="topic-meta">
+                PIN and APD structures, responsivity and basic receiver considerations
+                (overlaps with guided-wave optics but from device perspective).
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">PIN</p>
+              <h3>PIN Photodiode</h3>
+              <p>
+                p–i–n structure provides depletion region where photons are absorbed and electron–hole pairs are generated.
+              </p>
+              <ul>
+                <li>Reverse bias extends depletion width and speeds collection.</li>
+                <li>Responsivity R ≈ η q / (hν) [A/W].</li>
+                <li>Fast response, low dark current → widely used in receivers.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">APD</p>
+              <h3>Avalanche Photodiode (APD)</h3>
+              <p>
+                APD provides internal gain via impact ionization in a high-field region.
+              </p>
+              <ul>
+                <li>Multiplication factor M &gt; 1 amplifies photocurrent.</li>
+                <li>Improves sensitivity but adds excess noise and requires high bias.</li>
+                <li>Used when very low received power and high speed are needed.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Front-end</p>
+              <h3>Transimpedance Amplifier (TIA) Front-End</h3>
+              <p>
+                Converts detector current to voltage while controlling noise bandwidth.
+              </p>
+              <ul>
+                <li>Feedback resistor sets gain; capacitances set bandwidth.</li>
+                <li>Trade-off between gain and speed.</li>
+                <li>Total input-referred noise dictates minimum detectable signal.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Modulation, linewidth & noise -->
+        <section id="modulation-noise" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Modulation, Linewidth & Noise</h2>
+              <p class="topic-meta">
+                How lasers are modulated, what sets linewidth and what main noise processes appear.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">IM</p>
+              <h3>Intensity Modulation of Laser Diodes</h3>
+              <p>
+                Varying injection current varies output optical power.
+              </p>
+              <ul>
+                <li>Small-signal modulation: relaxation oscillation frequency sets speed limit.</li>
+                <li>Large-signal: pattern effects and chirp may degrade transmission in fibers.</li>
+                <li>Direct IM simplest but not always best for high-speed links.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Linewidth</p>
+              <h3>Laser Linewidth & Schawlow–Townes</h3>
+              <p>
+                Even “monochromatic” lasers have finite linewidth due to phase noise.
+              </p>
+              <ul>
+                <li>Fundamental limit: Schawlow–Townes formula (inversely ∝ output power, Q²).</li>
+                <li>Semiconductor lasers also have linewidth enhancement factor (α-factor).</li>
+                <li>Narrow linewidth crucial for coherent communication and sensing.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Noise</p>
+              <h3>Key Noise Mechanisms in Laser Output</h3>
+              <p>
+                Fluctuations in amplitude and phase originate from various processes.
+              </p>
+              <ul>
+                <li>Relative intensity noise (RIN) from spontaneous emission fluctuations.</li>
+                <li>Phase noise → linewidth; important for coherent detection.</li>
+                <li>Technical noise: drive current fluctuations, thermal drift, mechanical vibrations.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. Applications & advanced -->
+        <section id="applications-advanced-ls" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Applications & Advanced Concepts</h2>
+              <p class="topic-meta">
+                A quick view of where these devices are used and a few advanced structures
+                you might be asked about at a conceptual level.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Comms</p>
+              <h3>Lasers & Detectors in Fiber Links</h3>
+              <p>
+                Core building blocks for long-distance, high-capacity communication.
+              </p>
+              <ul>
+                <li>DFB / DBR lasers at 1310/1550 nm for WDM systems.</li>
+                <li>PIN/APD receivers with TIAs for high bit rates.</li>
+                <li>Design must balance power, dispersion and nonlinearities (see GWO sheet).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Sensing</p>
+              <h3>Optoelectronic Devices in Sensing</h3>
+              <p>
+                Many sensors use lasers + detectors as transducers.
+              </p>
+              <ul>
+                <li>LIDAR: pulsed lasers + timing electronics → distance / 3D imaging.</li>
+                <li>Interferometric sensors: phase shifts encode displacement, pressure, etc.</li>
+                <li>Photodiode arrays & cameras used for imaging-based metrology.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Advanced</p>
+              <h3>Advanced Semiconductor Laser Structures (Conceptual)</h3>
+              <p>
+                Device design can strongly tailor spectrum, direction and efficiency.
+              </p>
+              <ul>
+                <li>DFB/DBR lasers: built-in gratings for single-frequency emission.</li>
+                <li>VCSELs: vertical-cavity surface-emitting lasers, circular beams, easy 2D arrays.</li>
+                <li>Quantum well / quantum dot lasers: improved performance, lower threshold, tailored gain.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+

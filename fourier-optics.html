@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fourier Optics – Concept Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">FO</div>
+        <div>
+          <div class="brand-text-main">Fourier Optics</div>
+          <div class="brand-text-sub">Spatial frequency view of imaging & diffraction</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        Fourier optics · Core deck
+      </span>
+      <h1 class="hero-title">
+        Fourier <span>Optics Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet compresses the main ideas behind your Fourier Optics question bank:
+        Fourier transforms of fields, diffraction theory, coherent/incoherent imaging,
+        optical transfer functions, sampling & digital optics, and modern applications.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#fourier-fundamentals">Fourier Transform Fundamentals</a></li>
+          <li><a href="#diffraction-theory">Diffraction Theory</a></li>
+          <li><a href="#coherent-incoherent">Coherent vs Incoherent Imaging</a></li>
+          <li><a href="#otf-mtf">OTF, MTF & System Response</a></li>
+          <li><a href="#sampling-digital">Sampling, Digital Optics & Holography</a></li>
+          <li><a href="#applications-advanced">Applications & Advanced Topics</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>Fourier Optics</h1>
+          <p>
+            Think of this as the “frequency-domain language” of optics. If you understand
+            these cards, you can reason about most Fourier Optics VIVA questions:
+            from Fraunhofer diffraction and spatial filtering to OTF/MTF and sampling.
+          </p>
+        </header>
+
+        <!-- 1. Fourier fundamentals -->
+        <section id="fourier-fundamentals" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Fourier Transform Fundamentals</h2>
+              <p class="topic-meta">
+                Fourier representation of optical fields, spatial frequencies and the link
+                between object domain (x, y) and frequency domain (fₓ, fᵧ).
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Definition</p>
+              <h3>Fourier Transform of a Field</h3>
+              <p>
+                Any reasonably well-behaved 2D optical field can be decomposed into
+                spatial frequency components via the Fourier transform.
+              </p>
+              <div class="formula">
+                \[ F(f_x, f_y) = \iint f(x, y)\, e^{-i 2\pi (f_x x + f_y y)} \, dx\,dy \]
+              </div>
+              <ul>
+                <li>f(x, y): field or amplitude in the spatial domain.</li>
+                <li>F(fₓ, fᵧ): distribution of spatial frequencies.</li>
+                <li>High |f| → rapid spatial variation (fine details/edges).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Physical meaning</p>
+              <h3>Spatial Frequency Interpretation</h3>
+              <p>
+                Spatial frequency is the “cycles per unit distance” in the image or object.
+              </p>
+              <ul>
+                <li>Low frequencies: smooth variations, overall shape.</li>
+                <li>High frequencies: edges, fine textures, sharp transitions.</li>
+                <li>Finite aperture → low-pass filter in spatial frequency.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Linear systems</p>
+              <h3>Convolution & Multiplication Duality</h3>
+              <p>
+                For linear shift-invariant systems, convolution in space ↔ multiplication in frequency.
+              </p>
+              <div class="formula">
+                y(x, y) = x(x, y) * h(x, y)
+              </div>
+              <div class="formula">
+                Y(fₓ, fᵧ) = X(fₓ, fᵧ) · H(fₓ, fᵧ)
+              </div>
+              <ul>
+                <li>h(x, y): impulse response (PSF), H: transfer function (OTF).</li>
+                <li>Design often easier in frequency domain (filter masks, OTF shaping).</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Diffraction theory -->
+        <section id="diffraction-theory" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Diffraction Theory</h2>
+              <p class="topic-meta">
+                Fresnel and Fraunhofer diffraction as propagation of fields,
+                and their connection to Fourier transforms of apertures.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Scalar theory</p>
+              <h3>Huygens–Fresnel & Kirchhoff Integral</h3>
+              <p>
+                Every point on a wavefront acts as a secondary spherical wavelet; the field
+                at a point is the superposition of all contributions.
+              </p>
+              <ul>
+                <li>Kirchhoff integral is a scalar approximation to Maxwell’s equations.</li>
+                <li>Assumes paraxial regime and certain boundary conditions.</li>
+                <li>Forms basis for Fresnel and Fraunhofer diffraction formulas.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Near vs far field</p>
+              <h3>Fresnel vs Fraunhofer Diffraction</h3>
+              <p>
+                Whether we are in near or far field depends on the Fresnel number:
+              </p>
+              <div class="formula">
+                N<sub>F</sub> = a² / (λ z)
+              </div>
+              <ul>
+                <li>Fresnel (near field): N<sub>F</sub> ≳ 1; quadratic phase terms matter.</li>
+                <li>Fraunhofer (far field): N<sub>F</sub> ≪ 1; pattern is FT of aperture.</li>
+                <li>Fraunhofer often reached using a lens and finite distance.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Examples</p>
+              <h3>Canonical Diffraction Patterns</h3>
+              <p>
+                Common patterns are direct Fourier transforms of simple apertures.
+              </p>
+              <ul>
+                <li>Single slit → sinc² pattern.</li>
+                <li>Circular aperture → Airy disk (Bessel function behaviour).</li>
+                <li>Gratings → combs of sharp diffraction orders in frequency space.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Coherent vs incoherent imaging -->
+        <section id="coherent-incoherent" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Coherent vs Incoherent Imaging</h2>
+              <p class="topic-meta">
+                How imaging differs when illumination is coherent (fields add) vs
+                incoherent (intensities add), and what that implies for system transfer.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Coherent</p>
+              <h3>Coherent Imaging System Model</h3>
+              <p>
+                Under coherent illumination, complex field amplitudes superpose.
+              </p>
+              <ul>
+                <li>Image field = object field convolved with coherent PSF.</li>
+                <li>Transfer function is pupil function (with phase).</li>
+                <li>High sensitivity to phase errors and aberrations.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Incoherent</p>
+              <h3>Incoherent Imaging System Model</h3>
+              <p>
+                With incoherent illumination, intensities superpose, not fields.
+              </p>
+              <ul>
+                <li>Image intensity = object intensity convolved with intensity PSF.</li>
+                <li>Transfer function is OTF (Fourier transform of intensity PSF).</li>
+                <li>Aberrations appear as reduction in MTF, not simple pupil phase.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Comparison</p>
+              <h3>Key Differences: Coherent vs Incoherent</h3>
+              <p>
+                Same optical system behaves differently depending on coherence.
+              </p>
+              <ul>
+                <li>Coherent: linear in complex amplitude; OTF = pupil.</li>
+                <li>Incoherent: linear in intensity; OTF = autocorrelation of pupil.</li>
+                <li>Incoherent imaging generally gives smoother, less speckled images.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. OTF & MTF -->
+        <section id="otf-mtf" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">OTF, MTF & System Response</h2>
+              <p class="topic-meta">
+                Optical transfer function, modulation transfer function and phase transfer function
+                as metrics of imaging quality in the frequency domain.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Definition</p>
+              <h3>Optical Transfer Function (OTF)</h3>
+              <p>
+                OTF describes how each spatial frequency in the object is transferred to the image.
+              </p>
+              <div class="formula">
+                OTF(fₓ, fᵧ) = FT{ PSF(x, y) }
+              </div>
+              <ul>
+                <li>For incoherent imaging: PSF is intensity impulse response.</li>
+                <li>OTF(0, 0) = 1 by normalization.</li>
+                <li>Complex-valued: has magnitude and phase.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Magnitude & phase</p>
+              <h3>MTF & PTF</h3>
+              <p>
+                Decompose OTF into magnitude and phase:
+              </p>
+              <ul>
+                <li>MTF (Modulation Transfer Function) = |OTF|.</li>
+                <li>PTF (Phase Transfer Function) = arg(OTF).</li>
+                <li>MTF tells how contrast is transferred; PTF tells about phase distortion.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Cutoff</p>
+              <h3>Cutoff Frequency & Resolution</h3>
+              <p>
+                The finite pupil of an imaging system limits the highest spatial frequency it can pass.
+              </p>
+              <ul>
+                <li>Incoherent diffraction-limited cutoff: f<sub>c</sub> ≈ 2 NA / λ.</li>
+                <li>Coherent diffraction-limited cutoff: f<sub>c</sub> ≈ NA / λ.</li>
+                <li>MTF roll-off shape indicates practical resolution and contrast.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Sampling & Digital -->
+        <section id="sampling-digital" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Sampling, Digital Optics & Holography</h2>
+              <p class="topic-meta">
+                Relation between continuous fields and sampled data, aliasing, pixel pitch,
+                and basics of digital holography & Fourier optics implementation.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Nyquist</p>
+              <h3>Nyquist Sampling in Space</h3>
+              <p>
+                To reconstruct a band-limited image without aliasing, sample at least twice
+                the highest spatial frequency present.
+              </p>
+              <div class="formula">
+                f<sub>s</sub> ≥ 2 f<sub>max</sub>
+              </div>
+              <ul>
+                <li>Pixel pitch p ⇒ sampling frequency f<sub>s</sub> = 1/p.</li>
+                <li>Aliasing: high frequencies masquerade as lower ones.</li>
+                <li>Optical prefiltering (aperture/MTF) interacts with detector sampling.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Discrete FT</p>
+              <h3>Discrete Fourier Transform (DFT) in Optics</h3>
+              <p>
+                Numerical propagation and digital holography use DFT/FFT to approximate
+                propagation integrals.
+              </p>
+              <ul>
+                <li>Sampling grid in x–y maps to discrete grid in fₓ–fᵧ.</li>
+                <li>Zero padding controls interpolation and sampling in frequency domain.</li>
+                <li>Scaling factors set by pixel size and wavelength.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Digital holography</p>
+              <h3>Digital Holography Workflow</h3>
+              <p>
+                Record interference fringes using a sensor; reconstruct object numerically.
+              </p>
+              <ul>
+                <li>Record intensity of object + reference beams.</li>
+                <li>Use numerical Fresnel/Fourier propagation to reconstruct amplitude/phase.</li>
+                <li>Enables numerical refocusing and phase imaging.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. Applications & advanced -->
+        <section id="applications-advanced" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Applications & Advanced Topics</h2>
+              <p class="topic-meta">
+                Spatial filtering, 4f correlators, optical information processing,
+                and multi-aperture / interferometric systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">4f system</p>
+              <h3>4f Spatial Filtering System</h3>
+              <p>
+                A pair of lenses separated by 2f + 2f forms a 4f system that maps object → frequency plane → image.
+              </p>
+              <ul>
+                <li>Object at front focal plane of lens 1.</li>
+                <li>Fourier plane at common focal plane between lenses.</li>
+                <li>Spatial filter (aperture / mask) placed in Fourier plane to modify frequencies.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Correlation</p>
+              <h3>Optical Correlator (Matched Filtering)</h3>
+              <p>
+                Optical correlators implement pattern recognition by multiplying spectra
+                and inverse Fourier transforming.
+              </p>
+              <ul>
+                <li>Correlation in space ↔ multiplication with complex conjugate spectrum.</li>
+                <li>Bright spot in output indicates match between object and reference.</li>
+                <li>Used in target recognition and optical signal processing.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Multi-aperture</p>
+              <h3>Multi-Aperture & Interferometric Systems</h3>
+              <p>
+                Multiple sub-apertures combine to synthesize a larger effective aperture in frequency space.
+              </p>
+              <ul>
+                <li>Baseline spacing ↔ spatial frequency coverage.</li>
+                <li>Used in astronomical interferometry to achieve very high resolution.</li>
+                <li>Fourier coverage (u–v plane) determines image quality & reconstruction.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

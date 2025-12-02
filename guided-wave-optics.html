@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guided Wave Optics – Concept Cheat Sheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">GW</div>
+        <div>
+          <div class="brand-text-main">Guided Wave Optics</div>
+          <div class="brand-text-sub">Fibers, waveguides & optical communication</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">← All subjects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper">
+    <!-- Hero -->
+    <section class="hero" style="padding-bottom:0;">
+      <span class="chip">
+        <span class="chip-dot"></span>
+        Guided Wave Optics · Core deck
+      </span>
+      <h1 class="hero-title">
+        Guided Wave <span>Optics Concept Deck</span>
+      </h1>
+      <p class="hero-subtitle">
+        This sheet compresses your Guided Wave Optics & Optical Communication question bank:
+        fiber modes and losses, transmitters, modulators, receivers and noise, optical
+        amplifiers & nonlinearities, WDM systems, FSO links and integrated optics.
+      </p>
+    </section>
+
+    <section class="page-grid">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Topics</h2>
+        <ul class="topic-list">
+          <li><a href="#fiber-waveguides">Optical Fiber Waveguides & Modes</a></li>
+          <li><a href="#propagation-losses">Propagation Characteristics & Losses</a></li>
+          <li><a href="#tx-modulation">Optical Transmitters & Modulation</a></li>
+          <li><a href="#rx-noise">Receivers, Noise & Capacity</a></li>
+          <li><a href="#amplifiers-nonlinear">Optical Amplifiers & Nonlinear Effects</a></li>
+          <li><a href="#wdm-link">WDM / DWDM & Link Design</a></li>
+          <li><a href="#fso-integrated">Free-Space Optics & Integrated Waveguides</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main content -->
+      <div class="subject-main">
+        <header class="subject-header">
+          <h1>Guided Wave Optics</h1>
+          <p>
+            Treat this like a mental “network diagram” of fiber and waveguide systems.
+            Each block answers many of the VIVA questions clustered under the corresponding
+            topics in your sheet (fiber waveguides, optical communications, WDM, FSO, etc.).
+          </p>
+        </header>
+
+        <!-- 1. Fiber waveguides & modes -->
+        <section id="fiber-waveguides" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Optical Fiber Waveguides & Modes</h2>
+              <p class="topic-meta">
+                Step-index vs graded-index fibers, V-number, mode classification and basic
+                dispersion concepts arising from guided modes.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Waveguide</p>
+              <h3>Step-Index Fiber Structure</h3>
+              <p>
+                An optical fiber is a cylindrical dielectric waveguide with a higher-index
+                core surrounded by a lower-index cladding.
+              </p>
+              <ul>
+                <li>Core index n₁, cladding index n₂ (n₁ &gt; n₂).</li>
+                <li>Light guided by total internal reflection at core–cladding interface.</li>
+                <li>Numerical aperture: NA ≈ √(n₁² − n₂²).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">V-number</p>
+              <h3>Normalized Frequency (V-Number)</h3>
+              <p>
+                V-number determines how many modes a step-index fiber supports.
+              </p>
+              <div class="formula">
+                V = (2π a / λ) · NA
+              </div>
+              <ul>
+                <li>a: core radius; λ: operating wavelength.</li>
+                <li>Single-mode condition: V &lt; 2.405 (fundamental HE₁₁ mode only).</li>
+                <li>Number of guided modes (approx, step-index): M ≈ V² / 2.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">GI fibers</p>
+              <h3>Graded-Index (GI) Fibers</h3>
+              <p>
+                In GI fibers, the core index decreases gradually from center to edge.
+              </p>
+              <ul>
+                <li>Reduces intermodal dispersion by equalizing group delay of modes.</li>
+                <li>Approximate parabolic index profile → sinusoidal ray paths.</li>
+                <li>Used in multimode communication links with improved bandwidth.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2. Propagation characteristics & losses -->
+        <section id="propagation-losses" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Propagation Characteristics & Losses</h2>
+              <p class="topic-meta">
+                Attenuation mechanisms, dispersion types and their impact on bit rate
+                and transmission distance.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Loss</p>
+              <h3>Fiber Attenuation Mechanisms</h3>
+              <p>
+                Optical power decays exponentially along the fiber:
+              </p>
+              <div class="formula">
+                P(z) = P(0) e<sup>−αz</sup>
+              </div>
+              <ul>
+                <li>Intrinsic absorption (material), extrinsic absorption (impurities).</li>
+                <li>Rayleigh scattering (∝ 1/λ⁴) dominant in low-loss region.</li>
+                <li>Bending loss (macro & micro-bending) and connector/splice losses.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Dispersion</p>
+              <h3>Types of Dispersion in Fibers</h3>
+              <p>
+                Pulse broadening arises from different components arriving at different times.
+              </p>
+              <ul>
+                <li>Material dispersion: n(λ) variation in core.</li>
+                <li>Waveguide dispersion: mode field distribution vs λ.</li>
+                <li>Intermodal dispersion: different modes take different paths (multimode fiber).</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Bandwidth</p>
+              <h3>Bit Rate–Distance Product</h3>
+              <p>
+                Dispersion limits how fast data can be sent over a given length without
+                excessive intersymbol interference.
+              </p>
+              <ul>
+                <li>For a given dispersion, there is a maximum B·L product.</li>
+                <li>Dispersion compensation (DCF, Bragg gratings, etc.) extends link length.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. Transmitters & Modulation -->
+        <section id="tx-modulation" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Optical Transmitters & Modulation</h2>
+              <p class="topic-meta">
+                Laser/LED transmitters and how information is impressed on the optical carrier.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Sources</p>
+              <h3>LED vs Laser Diode Transmitters</h3>
+              <p>
+                Both are used as optical sources, but with very different properties.
+              </p>
+              <ul>
+                <li>LEDs: broad spectrum, low coherence, simple drive, lower cost.</li>
+                <li>Laser diodes: narrow linewidth, high power, high coupling efficiency.</li>
+                <li>Choice depends on required distance, bit rate and cost.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Modulation types</p>
+              <h3>Direct & External Modulation</h3>
+              <p>
+                Information can modulate the laser itself or an external device.
+              </p>
+              <ul>
+                <li>Direct modulation: drive the injection current → IM of output power.</li>
+                <li>External modulation: use LiNbO₃ Mach–Zehnder or electro-absorption modulators.</li>
+                <li>External modulation reduces chirp and improves high-speed performance.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Formats</p>
+              <h3>Basic Digital Modulation Formats</h3>
+              <p>
+                Modulation formats map bits onto optical amplitude/phase.
+              </p>
+              <ul>
+                <li>OOK (On–Off Keying): simplest, intensity-based.</li>
+                <li>NRZ vs RZ pulse shapes affect spectral width and dispersion tolerance.</li>
+                <li>Advanced formats: DPSK, QPSK, QAM used in high-capacity systems.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 4. Receivers, noise & capacity -->
+        <section id="rx-noise" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Receivers, Noise & Capacity</h2>
+              <p class="topic-meta">
+                Photodetectors, receiver front ends, noise sources and Shannon capacity.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Detector</p>
+              <h3>Photodiodes in Optical Receivers</h3>
+              <p>
+                PIN and avalanche photodiodes convert optical signals to electrical current.
+              </p>
+              <ul>
+                <li>PIN: high speed, moderate gain, low noise.</li>
+                <li>APD: internal gain via impact ionization, higher sensitivity with extra noise.</li>
+                <li>Bandwidth set by junction capacitance and load.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Noise</p>
+              <h3>Key Noise Sources in Optical Receivers</h3>
+              <p>
+                Noise limits minimum detectable power and BER.
+              </p>
+              <ul>
+                <li>Shot noise: due to discrete nature of electrons/photons.</li>
+                <li>Thermal (Johnson) noise: from resistive elements.</li>
+                <li>Amplifier noise: from transimpedance and post-amps.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Capacity</p>
+              <h3>Shannon Capacity & Optical Links</h3>
+              <p>
+                Even with ideal coding, capacity is limited by SNR and bandwidth.
+              </p>
+              <div class="formula">
+                C = B · log₂(1 + S/N)
+              </div>
+              <ul>
+                <li>B: electrical bandwidth; S/N: signal-to-noise ratio at receiver.</li>
+                <li>Higher launch power helps until nonlinear effects and noise dominate.</li>
+                <li>Sets upper bound on bit rate for given link conditions.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. Amplifiers & nonlinear effects -->
+        <section id="amplifiers-nonlinear" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Optical Amplifiers & Nonlinear Effects</h2>
+              <p class="topic-meta">
+                EDFAs and other amplifiers for long-haul links, plus Kerr and other nonlinear
+                phenomena in fibers at high powers.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">EDFA</p>
+              <h3>Erbium-Doped Fiber Amplifier (EDFA)</h3>
+              <p>
+                A length of erbium-doped fiber pumped by a laser to amplify signals around 1550 nm.
+              </p>
+              <ul>
+                <li>Acts as a quasi-flat-gain amplifier over the C/L bands.</li>
+                <li>Key parameters: gain, noise figure, saturation power.</li>
+                <li>Enables multi-span, long-distance WDM systems.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Kerr</p>
+              <h3>Nonlinear Effects in Fibers</h3>
+              <p>
+                High intensities in long fibers cause nonlinear interactions.
+              </p>
+              <ul>
+                <li>SPM (Self-Phase Modulation): intensity-dependent phase → spectral broadening.</li>
+                <li>XPM (Cross-Phase Modulation): one channel modulates phase of another.</li>
+                <li>FWM (Four-Wave Mixing): generates new frequencies, relevant in dense WDM.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Trade-offs</p>
+              <h3>Power vs Nonlinearity Trade-off</h3>
+              <p>
+                Raising power improves SNR but increases nonlinear distortions.
+              </p>
+              <ul>
+                <li>Optimal launch power balances ASE noise and nonlinear penalties.</li>
+                <li>Dispersion management affects effective nonlinear length.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6. WDM / DWDM & link design -->
+        <section id="wdm-link" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">WDM / DWDM & Link Design</h2>
+              <p class="topic-meta">
+                Using many wavelengths on the same fiber, multiplexing components
+                and system-level power budgeting.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">Concept</p>
+              <h3>WDM & DWDM Basics</h3>
+              <p>
+                Wavelength Division Multiplexing sends multiple independent channels
+                at different wavelengths over a single fiber.
+              </p>
+              <ul>
+                <li>WDM: channel spacing ~nm; DWDM: very narrow spacing (0.8 nm / 100 GHz or less).</li>
+                <li>Requires precise wavelength control and filters.</li>
+                <li>Massively increases total capacity of a single fiber.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Components</p>
+              <h3>Key WDM Components</h3>
+              <p>
+                Passive and active components manage many wavelengths.
+              </p>
+              <ul>
+                <li>Multiplexers/Demultiplexers (AWGs, thin-film filters).</li>
+                <li>Optical add-drop multiplexers (OADMs, ROADMs).</li>
+                <li>Wavelength-selective switches in reconfigurable networks.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Link budget</p>
+              <h3>Optical Link Power Budget</h3>
+              <p>
+                Ensures that received power is above sensitivity after accounting for all losses.
+              </p>
+              <ul>
+                <li>Budget includes fiber loss, connectors, splices, and margins.</li>
+                <li>Amplifiers used to restore power at intermediate points.</li>
+                <li>Combined with dispersion and OSNR analysis for full system design.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- 7. FSO & integrated optics -->
+        <section id="fso-integrated" class="topic-section">
+          <div class="topic-header">
+            <div>
+              <h2 class="topic-title">Free-Space Optics & Integrated Waveguides</h2>
+              <p class="topic-meta">
+                Atmospheric free-space links and planar/integrated photonic circuits as
+                guided-wave systems in different platforms.
+              </p>
+            </div>
+          </div>
+
+          <div class="flashcard-grid">
+            <article class="flashcard">
+              <p class="tag">FSO</p>
+              <h3>Free-Space Optical (FSO) Communication</h3>
+              <p>
+                Uses laser beams propagating through atmosphere instead of fiber.
+              </p>
+              <ul>
+                <li>Advantages: high data rate, license-free spectrum, rapid deployment.</li>
+                <li>Limitations: weather dependence (fog, rain, turbulence), pointing and tracking.</li>
+                <li>Used for last-mile, building-to-building links, backhaul.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Integrated</p>
+              <h3>Integrated Optical Waveguides</h3>
+              <p>
+                Planar lightwave circuits (PLCs) and photonic integrated circuits guide light
+                on a chip using high-index-contrast waveguides.
+              </p>
+              <ul>
+                <li>Platforms: Si, SiN, InP, LiNbO₃, etc.</li>
+                <li>Components: splitters, couplers, MZIs, filters, modulators, detectors.</li>
+                <li>Enable compact, low-cost, high-volume optical systems.</li>
+              </ul>
+            </article>
+
+            <article class="flashcard">
+              <p class="tag">Coupling</p>
+              <h3>Fiber–Chip Coupling</h3>
+              <p>
+                Efficiently getting light between fiber and integrated waveguide is critical.
+              </p>
+              <ul>
+                <li>Edge coupling (butt-coupling) vs grating couplers (vertical).</li>
+                <li>Mode size mismatch causes coupling loss; tapers used to adapt modes.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
